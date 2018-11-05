@@ -1,0 +1,551 @@
+/* CSS Document */
+@import "fontawesome/font-awesome.css";
+@import "fontawesome/font-awesome.min.css";
+@import "datatables/jquery.dataTables.css";
+@import "selectstyle/select.css";
+@import "../ckeditor/ckeditor/sample.css";
+@import "icheck/_all.css";
+@import url(http://fonts.googleapis.com/css?family=Oswald);
+* {
+	margin: 0px;
+	padding: 0px;
+}
+body, html {
+	margin: 0px;
+	padding: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	background: url(../images/background/fabric_of_squares_gray.png);
+}
+.fontawesm {
+	font-family: 'FontAwesome';
+}
+.auto {
+	margin: 0 auto;
+}
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+.clear {
+	clear: both;
+}
+.displayblock {
+	display: block;
+}
+.displaynone {
+	display: none;
+}
+.relative {
+	position: relative;
+}
+.absolute {
+	position: absolute;
+}
+.fixed {
+	position: fixed;
+}
+img {
+	max-width: 100%;
+}
+li {
+	list-style: none;
+}
+.color {
+	color: #FFF;
+}
+.coloredit {
+	color: #000;
+	font-size: 14px;
+}
+.iconpad {
+	padding: 10px 5px;
+}
+.bgorange {
+	background: #e9573f;
+}
+.colororange {
+	color: #e9573f;
+}
+.bgyellow {
+	background: #f6bb42;
+}
+.coloryellow {
+	color: #f6bb42;
+}
+.bggreen {
+	background: #8cc152;
+}
+.colorgreen {
+	color: #8cc152;
+}
+.bgblue {
+	background: #3bafda;
+}
+.colorblue {
+	color: #3bafda;
+}
+/* Css start */
+.wrapper {
+	width: 100%;
+}
+.topbbar {
+	width: 100%;
+	padding: 10px 0;
+	background: #303741;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+}
+.leftnav {
+	width: 20%;
+	max-width: 300px;
+	box-sizing: border-box;
+	background: #303741;
+	padding: 0;
+	position: fixed;
+	height: 100%;
+	margin-top: 3.2%;
+}
+.leftnav > ul {
+	width: 100%;
+}
+.leftnav > ul > li {
+	width: 100%;
+	box-sizing: border-box;
+	border-bottom: 1px solid #39404a;
+}
+.leftnav > ul > li a {
+	display: block;
+	text-align: left;
+	color: #f5faff;
+	text-decoration: none;
+	padding: 10px 10px;
+	text-transform: uppercase;
+}
+.leftnav > ul > li a:hover {
+	color: #FFF;
+	background: #3c4551;
+	border-left: 2px solid #096;
+}
+.leftnav > ul > li > ul > li a:hover {
+	color: #FFF;
+	background: #3c4551;
+	border-left: 0px solid #f6bb42;
+}
+.activeclass {
+	color: #FFF !important;
+	background: #3c4551;
+	border-left: 2px solid #096;
+}
+.activeclasschild {
+	color: #FFF !important;
+	background: #3c4551;
+	border-right: 4px solid #f6bb42;
+}
+.leftnav li .dropdown {
+	width: 100%;
+	box-sizing: border-box;
+	padding-left: 25px;
+}
+.leftnav li .dropdown li {
+	width: 100%;
+	box-sizing: border-box;
+	border-top: 1px dotted #39404a;
+}
+.leftnav li .dropdown li a {
+	display: block;
+	text-align: left;
+	color: #f5faff;
+	text-decoration: none;
+	padding: 10px 10px;
+	text-transform: uppercase;
+}
+.leftnav li .dropdown li a:hover {
+	color: #FFF;
+}
+.dropdown {
+	display: none;
+}
+/* Dashboard section css */
+.rightwrapper {
+	width: 80%;
+	margin-top: 3.6%;
+}
+.wrapboxmain {
+	width: 100%;
+	margin: 10px 0;
+}
+.wrapboxmain .wrapbox {
+	width: 31.33333%;
+	margin: 0 1% 1%;
+	background: #FFF;
+	box-sizing: border-box;
+	border: 1px solid #f0f0f0;
+	box-shadow: inset 1px 1px 10px 1px #f1f1f1;
+}
+.wrapboxmain .wrapbox span {
+	width: 40%;
+	text-align: center;
+	color: #FFF;
+	font-family: 'Oswald', sans-serif;
+	font-size: 22px;
+	padding: 15px 0;
+	font-weight: bold;
+}
+.wrapboxmain .wrapbox h3 {
+	width: 60%;
+	text-align: center;
+	font-family: 'Oswald', sans-serif;
+	font-size: 22px;
+	text-transform: uppercase;
+	padding: 14px 0;
+}
+.fullcontent {
+	width: 98%;
+	margin: 0 1%;
+}
+.dev-col-1 {
+	width: 99%;
+}
+.dev-col-2 {
+	width: 48%;
+}
+.marrf { margin-left:1%;}
+.colbg {
+	background: #fff;
+	border: 1px solid #f0f0f0;
+	box-shadow: 1px 1px 1px 1px #f0f0f0;
+	padding: 5px;
+	margin-bottom: 5px;
+	/*clear:both;*/
+}
+.colbg h1 {
+	background: #2c3439;
+	padding: 10px;
+	color: #b1c5d8;
+	font-family: 'Oswald', sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+/*Form styling*/
+.btn {
+	-moz-user-select: none;
+	background-image: none;
+	border: 1px solid transparent;
+	cursor: pointer;
+	display: inline-block;
+	border-radius: 1px;
+	font-size: 12px;
+	font-weight: normal;
+	line-height: 1.42857;
+	padding: 10px 18px;
+	text-decoration: none;
+	text-align: center;
+	vertical-align: middle;
+	min-width: 150px;
+	color: #fff;
+	text-transform: uppercase;
+	white-space: nowrap;
+	margin: 10px 0;
+}
+.btn:hover {
+	background-color: #303741;
+	border-color: #303741;
+}
+.btn-block {
+	display: block;
+	width: 100%;
+}
+.btn-green {
+	background-color: #8cc152;
+	border-color: #8cc152;
+}
+.btn-orange {
+	background-color: #e9573f;
+	border-color: #e9573f;
+}
+.ContentDiv .formwrap {
+	clear: both;
+	padding: 0 10px 10px 10px;
+}
+.ContentDiv .formwrap > label {
+	clear: both;
+	float: left;
+	width: 100%;
+	
+	border-bottom: 1px dotted #f0f0f0;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+padding-bottom: 7px;
+	color: #666;
+	font-weight:bold;
+}
+.ContentDiv .formwrap > input[type="text"], input[type="password"], input[type="email"], input[type="file"], input[type="date"], input[type="number"] {
+	clear: both;
+	    box-sizing: border-box;
+    width: 100%;
+	color: #777;
+	padding: 10px;
+	border: 1px solid #ccc;
+}
+.textarea {
+	clear: both;
+	width: 100%;
+	color: #777;
+	box-sizing: border-box;
+	padding: 10px;
+	border: 1px solid #ccc;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px; line-height:16px;
+}
+.selectbox {
+	clear: both;
+	width: 100%;
+	color: #777;
+	padding: 10px;
+	border: 1px solid #ccc;
+}
+.ContentDiv .formwrap > .select {
+	width: 99.3%;
+	height: 32px;
+	border: 1px solid #f0f0f0 !important;
+}
+.ContentDiv .styledSelect {
+	padding: 5px 10px !important;
+	min-height: 18px;
+}
+.ContentDiv .styledSelect:after {
+	top: 14px !important;
+}
+.ContentDiv .formwrap > span {
+	margin: 0 30px;
+	text-transform: uppercase;
+	color: #666;
+	clear: both;
+}
+#cke_adDescp {
+	margin:0 !important;
+}
+.colbg .ContentDiv > h1 {
+	margin-bottom: 10px !important;
+}
+#newboxwrap {
+	display: none;
+}
+.message {
+	border: 1px solid #ccc;
+	padding: 10px;
+	width: 96%;
+	margin-left: 1%;
+	text-align: center;
+	color: #fff;
+	font-weight: bold;
+	background: #AD8282;
+	font-size: 12px;
+	text-transform: uppercase;
+}
+.filter {
+	margin-top:15px;
+}
+.filter .filterclas {
+	padding: 8px;
+	min-width: 300px;
+	border: 1px solid #ccc;
+}
+/*Admin CSS*/
+#wrap {
+	background:#2a2a2a;
+	padding:10px 0;
+	float:left;
+	color: #fff;
+	text-align: center;
+	font-family: 'Oswald', sans-serif;
+	font-size: 22px;
+	width:100%;
+	position:fixed;
+	top:0;
+}
+.login {
+	width: 25%;
+	padding: 18px;
+	margin: 128px auto;
+	background: #fff;
+	border: 1px solid #ccc;
+	position: relative;
+	box-shadow: inset 1px 1px 29px 1px #ddd;
+	min-height: 150px;
+}
+.login > label {
+	float: left;
+	clear: both;
+	margin-bottom: 5px;
+	width:100%;
+}
+.loginput {
+	border: 1px solid #ccc !important;
+	padding: 9px !important;
+	width: 95%;
+}
+#error p {
+	clear:both;
+	background:#f00;
+	border:1px solid #fff;
+	padding:6px;
+	color:#fff;
+	text-align:center;
+}
+.actns {
+	clear: both;
+	margin-top: 11px;
+	margin-left: 13px;
+	font-size: 11px;
+	color:#999;
+}
+.actns select {
+	clear: both;
+	width: 20%;
+	color: #777;
+	padding: 10px;
+	border: 1px solid #ccc;
+}
+.detailspage {
+	clear: both;
+	margin-top: 10px;
+	border: 1px solid #f0f0f0;
+}
+.detailspage th {
+	padding: 10px;
+	float: left;
+	font-family: arial;
+	font-size: 12px;
+	background: #f0f0f0;
+	width:26%;
+	text-align: left;
+	border-right: 1px solid #ddd;
+	border-bottom: 1px solid #dedede;
+}
+.detailspage td {
+	padding: 10px;
+	width:70%;
+	float: left;
+	min-height:14px;
+	font-size: 12px;
+	text-align: left;
+	border-bottom: 1px solid #dedede;
+}
+#showsubcat img {
+	margin: 0 auto;
+	margin-left: 48%;
+}
+#cke_pageContent {
+	margin: 0 !important;
+}
+.logoadmin {
+	color: #b1c5d8;
+	font-family: 'Oswald', sans-serif;
+	font-size: 19px;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	float:left;
+	width:25%;
+	margin-left: 1%;
+}
+.rightadmin {
+	float:right;
+	width:50%;
+	margin-right: 2%;
+}
+.rightadmin li {
+	list-style: none;
+	float: right;
+
+}
+.rightadmin li a {
+	color: #b1c5d8;
+	font-family: 'Oswald', sans-serif;
+	font-size: 11px;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	text-decoration: none;
+	padding: 17px 10px;
+	line-height: 27px;
+}
+.rightadmin li a:hover {
+	background:#202A34;
+	box-shadow: inset 1px 1px 21px 1px #4C4C4C;
+}
+.rightadminhover {
+	background:#202A34 !important;
+}
+.imgad { border: 1px solid #ccc;
+float: left;
+padding: 5px;
+background: #2a2a2a;
+margin: 10px;}
+
+
+@media screen and (max-width:480px){
+	.dev-col-1 {    width: 98% !important;
+    margin-left: 1% !important;
+    box-sizing: border-box;}
+	.dataTables_wrapper { padding:2px !important;}
+	.topbbar { }
+	.topbbar .logoadmin{ text-align:center; width:100% !important;}
+	.wrapbox { width:98% !important; clear:both;}
+	.wrapboxmain { margin-top:0px;}
+.rightadmin {display:none;}
+.leftnav {
+	position: relative !important;
+	width: 100%;
+    max-width: 100% !important;
+    box-sizing: initial;
+	height:auto !important;
+	float:left;
+	clear:both;
+	    border-top: 1px solid #ccc;
+    margin-top: 11% !important;}	
+.rightwrapper {    width: 100% !important;
+    box-sizing: content-box;
+    padding: 0;}
+}
+
+.tab-content {
+  padding: 80px 20px 20px;
+  width: 100%;
+    box-sizing: border-box;
+  min-height: 340px;
+}
+
+.tab-content section {
+  width: 100%;
+  display: none;
+}
+
+#tab-1:checked ~ .tab-content #tab-item-1  {
+  display: block;
+}
+
+#tab-2:checked ~ .tab-content #tab-item-2  {
+  display: block;
+}
+
+#tab-3:checked ~ .tab-content #tab-item-3  {
+  display: block;
+}
+.fstElement {
+	border: 1px solid #ccc;
+  padding: 7px 8px;
+  font-size: 12px;
+  color: #777 !important;
+}
+#companydetails { display:none;}
+.subaction {  margin-right: 5px;}
+.subaction select { padding:4px;}
+.styletxtarea {height: 118px;}
+.activebtns { background:#2a2a2a !important;}

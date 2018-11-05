@@ -1,0 +1,103 @@
+.how-it-works{
+	text-align: center;
+}
+.how-it-works img{
+	width: 100px;
+	margin-bottom: 30px;
+}
+.how-it-works h2{
+	font-size: 34px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.how-it-works p{
+	font-size: 18px;
+    font-weight: 400;
+    opacity: 1;
+    line-height: 30px;
+}
+.get-started{
+	text-align: center;
+	color: #fff;
+}
+.get-started h2{
+	color: #fff;
+	margin-bottom: 20px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: 700;
+}
+.get-started .button_2 {
+	color: #fff!important;
+    background-color: #0af;
+    max-width: 370px;
+    padding: .8em;
+    font-size: 18px;
+    font-weight: 700;
+    height: auto;
+    border-radius: 4px;
+    width: 100%;
+    display: inline-block;
+}
+.get-started .button_2:hover{
+	background: #fff;
+	color: #0af !important;
+	}
+.get-started p{font-size: 16px; max-width: 600px; margin: 0 auto; margin-bottom: 50px; line-height: 30px;}
+
+.program-stages {
+    width: 100%;
+    border-top: 4px solid rgba(0, 0, 0, 0.05);
+    margin-top: -4px;
+    border-bottom: 3px solid #e5e5e5
+}
+.program-stages .program-stages-container {
+    width: 100%;
+    max-width: 952px;
+    margin-left: auto;
+    margin-right: auto
+}
+.program-stages .program-stages-container:before,
+.program-stages .program-stages-container:after {
+    content: ' ';
+    display: table
+}
+.program-stages .program-stages-container:after {
+    clear: both
+}
+.program-stages .program-stages-container a:first-child .program-stage-link {
+    border-left: 1px solid #e5e5e5
+}
+.program-stages .program-stages-container a {
+    display: block;
+    float: left;
+    width: 20%
+}
+.program-stages .program-stages-container img {
+    display: block;
+    margin: 0 auto 5px auto;
+    height: 36px
+}
+.program-stages .program-stages-container .program-stage-link {
+    box-sizing: border-box;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    padding: 10px 0;
+    cursor: pointer;
+    border-right: 1px solid #e5e5e5;
+    display: block
+}
+.program-stages .program-stages-container .program-stage-link:hover {
+    background: #f3fafe
+}
+@media (max-width: 767px){
+.program-stages {
+    display: none;
+	}
+}
+
+.green-a a{
+	color: #1bb933 !important;
+}

@@ -1,0 +1,27 @@
+[24-Apr-2018 02:54:52 CST6CDT] PHP Fatal error:  Class 'SendGrid\Email' not found in /home/demoicodash/public_html/application/controllers/Ico.php on line 26508
+[24-Apr-2018 02:55:24 CST6CDT] PHP Fatal error:  Class 'SendGrid\Email' not found in /home/demoicodash/public_html/application/controllers/Ico.php on line 26508
+[24-Apr-2018 02:55:26 CST6CDT] PHP Fatal error:  Class 'SendGrid\Email' not found in /home/demoicodash/public_html/application/controllers/Ico.php on line 26508
+[24-Apr-2018 02:55:29 CST6CDT] PHP Fatal error:  Class 'SendGrid\Email' not found in /home/demoicodash/public_html/application/controllers/Ico.php on line 26508
+[24-Apr-2018 02:57:23 CST6CDT] PHP Fatal error:  Class 'SendGrid\Email' not found in /home/demoicodash/public_html/application/controllers/Ico.php on line 26510
+[24-Apr-2018 02:57:25 CST6CDT] PHP Fatal error:  Class 'SendGrid\Email' not found in /home/demoicodash/public_html/application/controllers/Ico.php on line 26510
+[24-Apr-2018 03:15:52 CST6CDT] PHP Fatal error:  Class 'SendGrid\Email' not found in /home/demoicodash/public_html/application/controllers/Ico.php on line 26518
+[24-Apr-2018 03:18:01 CST6CDT] PHP Fatal error:  Class 'SendGrid\Email' not found in /home/demoicodash/public_html/application/controllers/Ico.php on line 26518
+[26-Apr-2018 13:59:11 CST6CDT] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[30-Apr-2018 01:27:23 CST6CDT] PHP Parse error:  syntax error, unexpected '}' in /home/demoicodash/public_html/application/controllers/Ico.php on line 1
+[30-Apr-2018 01:28:07 CST6CDT] PHP Parse error:  syntax error, unexpected '}' in /home/demoicodash/public_html/application/controllers/Ico.php on line 1
+[30-Apr-2018 01:28:11 CST6CDT] PHP Parse error:  syntax error, unexpected '}' in /home/demoicodash/public_html/application/controllers/Ico.php on line 1
+[30-Apr-2018 01:28:43 CST6CDT] PHP Parse error:  syntax error, unexpected 'exit' (T_EXIT) in /home/demoicodash/public_html/application/controllers/Ico.php on line 1
+[30-Apr-2018 01:29:16 CST6CDT] PHP Parse error:  syntax error, unexpected 'exit' (T_EXIT) in /home/demoicodash/public_html/application/controllers/Ico.php on line 1
+[30-Apr-2018 01:30:26 CST6CDT] PHP Parse error:  syntax error, unexpected '}' in /home/demoicodash/public_html/application/controllers/Ico.php on line 1
+[30-Apr-2018 01:31:04 CST6CDT] PHP Parse error:  syntax error, unexpected '}' in /home/demoicodash/public_html/application/controllers/Ico.php on line 1
+[30-Apr-2018 01:33:00 CST6CDT] PHP Parse error:  syntax error, unexpected '}' in /home/demoicodash/public_html/application/controllers/Ico.php on line 1
+[30-Apr-2018 08:52:14 CST6CDT] PHP Parse error:  syntax error, unexpected '}' in /home/demoicodash/public_html/application/controllers/Ico.php on line 1
+[02-May-2018 00:43:38 CST6CDT] PHP Parse error:  syntax error, unexpected '}' in /home/demoicodash/public_html/application/controllers/Ico.php on line 1
+[11-May-2018 07:34:47 CST6CDT] PHP Parse error:  syntax error, unexpected end of file in /home/demoicodash/public_html/application/controllers/Ico.php on line 47459
+[17-Jul-2018 01:25:51 CST6CDT] PHP Parse error:  syntax error, unexpected end of file in /home/demoicodash/public_html/application/controllers/Ico.php on line 7270
+[26-Jul-2018 01:55:50 CST6CDT] PHP Parse error:  syntax error, unexpected '1' (T_LNUMBER) in /home/demoicodash/public_html/application/controllers/Ico.php on line 10115
+[26-Jul-2018 01:55:52 CST6CDT] PHP Parse error:  syntax error, unexpected '1' (T_LNUMBER) in /home/demoicodash/public_html/application/controllers/Ico.php on line 10115
+[26-Jul-2018 01:55:59 CST6CDT] PHP Parse error:  syntax error, unexpected '1' (T_LNUMBER) in /home/demoicodash/public_html/application/controllers/Ico.php on line 10115
+[26-Jul-2018 01:56:03 CST6CDT] PHP Parse error:  syntax error, unexpected '1' (T_LNUMBER) in /home/demoicodash/public_html/application/controllers/Ico.php on line 10115
+[26-Jul-2018 01:57:19 CST6CDT] PHP Parse error:  syntax error, unexpected '1' (T_LNUMBER) in /home/demoicodash/public_html/application/controllers/Ico.php on line 10115
+[26-Jul-2018 01:57:21 CST6CDT] PHP Parse error:  syntax error, unexpected '1' (T_LNUMBER) in /home/demoicodash/public_html/application/controllers/Ico.php on line 10115

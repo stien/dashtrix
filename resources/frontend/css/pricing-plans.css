@@ -1,0 +1,487 @@
+.pricingPage .pricingPageDetail {
+    width: 100%;
+    background-color: #fff;
+    background-image: -webkit-linear-gradient(#eff3f5 0%, #fff 100%);
+    background-image: linear-gradient(#eff3f5 0%, #fff 100%);
+    text-align: center;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    padding-bottom: 30px
+}
+.pricingPage .pricingPageDetail .positioning {
+    background: #2b2f3e
+}
+.pricingPage .pricingPageDetail h2 {
+    color: #2b333f
+}
+.pricingPage a {
+    text-decoration: none
+}
+.pricingPage .smallTable {
+    float: left;
+    width: 90%;
+    margin-right: 30px;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+    text-align: left
+}
+.pricingPage .smallTable tbody {
+    border: 1px solid #e5e9ef
+}
+.pricingPage .smallTable tr:nth-child(2n) td {
+    background: #f4f7f8
+}
+.pricingPage .smallTable h3 {
+    font-weight: 400;
+    font-size: 100%
+}
+.pricingPage .smallTable td,
+.pricingPage .smallTable th {
+    text-align: left;
+    padding: 0 20px 9pt
+}
+.pricingPage .smallTable td {
+    padding-top: 15px;
+    font-weight: 400;
+    border-left: 1px solid #e5e9ef;
+    border-right: 1px solid #e5e9ef;
+    vertical-align: baseline
+}
+.pricingPage .columns .column.third {
+    padding-left: 0
+}
+.pricingPage .columns {
+    padding-top: 20px
+}
+.pricingPage .pricingHelp {
+    position: relative;
+    cursor: help;
+    font-weight: 700
+}
+.pricingPage .pricingHelp:hover:before {
+    content: '';
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: 100%;
+    left: 50%;
+    margin: -5px 0 0 -5px;
+    border-style: solid;
+    border-color: transparent transparent #5ac1d7;
+    border-width: 5px
+}
+.pricingPage .pricingHelp:hover:after {
+    content: attr(data-title);
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin: 5px 0 0;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    height: 1.8em;
+    line-height: 1.8em;
+    padding: 2px 9pt 0;
+    background: #5ac1d7;
+    font-size: 1pc;
+    white-space: nowrap;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 4px
+}
+.pricingPage .callToActionButton {
+    display: inline-block;
+    height: 2.5em;
+    line-height: 2.5em;
+    padding: 3px 17px 0;
+    background: #49b7ff;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-top: 9pt
+}
+.pricingPage .callToActionButton.strongCallToAction {
+    background-color: #49cc90
+}
+.pricingPage .callToActionButton:hover {
+    color: #fff;
+    text-decoration: underline
+}
+.pricingPage .pricingTable {
+    border-collapse: collapse;
+    width: 99%;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 400;
+    margin-bottom: 50px;
+}
+.pricingPage .pricingTable h2,
+.pricingPage .pricingTable h3,
+.pricingPage .pricingTable p,
+.pricingPage .pricingTable td,
+.pricingPage .pricingTable th {
+    font-weight: 400
+}
+.pricingPage .pricingTable p {
+    font-family: Proxima Nova, Helvetica, Arial, sans-serif
+}
+.pricingPage .pricingTable h3 {
+    font-size: 17px;
+    color: #2b333f;
+    line-height: 14px;
+    padding-bottom: 5px;
+    padding-top: 6px;
+    font-weight: 600
+}
+.pricingPage .pricingTable td,
+.pricingPage .pricingTable th {
+    width: 15%;
+    min-width: 125px;
+    padding: 13px 20px;
+    text-align: center;
+    font-size: 1pc;
+    color: #6a6a6a;
+    vertical-align: middle
+}
+.pricingPage .pricingTable td p,
+.pricingPage .pricingTable th p {
+    margin: 0;
+    font-size: 14px;
+    color: #6a6a6a;
+    line-height: 1.3
+}
+.pricingPage .pricingTable th {
+    vertical-align: top;
+    width: auto;
+    font-size: 1pc;
+    text-align: left
+}
+.pricingPage .pricingTable tfoot,
+.pricingPage .pricingTable thead {
+    font-weight: 700;
+    font-size: 18px
+}
+.pricingPage .pricingTable tfoot td,
+.pricingPage .pricingTable thead td {
+    vertical-align: text-top
+}
+.pricingPage .pricingTable tfoot td,
+.pricingPage .pricingTable tfoot th,
+.pricingPage .pricingTable thead td,
+.pricingPage .pricingTable thead th {
+    padding: 10px
+}
+.pricingPage .pricingTable tfoot td p,
+.pricingPage .pricingTable tfoot th p,
+.pricingPage .pricingTable thead td p,
+.pricingPage .pricingTable thead th p {
+    padding: 0 0 15px;
+    margin: 0
+}
+.pricingPage .pricingTable tfoot td h2,
+.pricingPage .pricingTable tfoot th h2,
+.pricingPage .pricingTable thead td h2,
+.pricingPage .pricingTable thead th h2 {
+    display: block;
+    color: #2a6aa1;
+    font-weight: 700;
+    text-transform: uppercase !important;
+    font-size: 22px;
+    padding: 15px 0 10px;
+    margin: 0;
+    text-align: center
+}
+.pricingPage .pricingTable tfoot td a:not(.callToActionButton),
+.pricingPage .pricingTable tfoot th a:not(.callToActionButton),
+.pricingPage .pricingTable thead td a:not(.callToActionButton),
+.pricingPage .pricingTable thead th a:not(.callToActionButton) {
+    font-weight: 600
+}
+
+.pricingPage .pricingTable tfoot td {
+    vertical-align: top
+}
+.pricingPage .pricingTable tfoot td p,
+.pricingPage .pricingTable tfoot th p {
+    padding: 2px 0
+}
+.pricingPage .pricingTable tbody {
+    text-align: center;
+    border: 1px solid #dce6ea;
+    background: #fff;
+}
+.pricingPage .pricingTable tbody td,
+.pricingPage .pricingTable tbody th {
+    font-size: 15px;
+    font-weight: 600;
+    border-left: 1px solid #e5e9ef;
+    border-right: 1px solid #e5e9ef;
+    border-bottom: 1px solid #e5e9ef
+}
+.pricingPage .pricingTable tbody td ul,
+.pricingPage .pricingTable tbody th ul {
+    color: #6a6a6a;
+    font-size: 14px;
+    font-weight: 400;
+    list-style-type: disc;
+    margin: 0;
+    padding-left: 20px
+}
+.pricingPage .pricingTable tbody td.check span,
+.pricingPage .pricingTable tbody td.x span {
+    display: inline-block;
+    width: 26px;
+    height: 24px;
+    overflow: hidden;
+    visibility: hidden;
+    vertical-align: middle
+}
+.pricingPage .pricingTable tbody td.x span {
+    width: 19px;
+    height: 24px
+}
+.pricingPage .pricingTable .priceValue {
+    font-size: 30px;
+    color: #2b333f;
+    line-height: 28px;
+    font-weight: 600;
+    display: inline-block;
+    margin: 0 4px
+}
+.pricingPage .pricingTable .priceInfo,
+.pricingPage .pricingTable .priceInfoSymbol {
+    font-size: 1pc;
+    color: #9aa8b8;
+    line-height: 22px
+}
+.pricingPage .pricingTable .priceInfoSymbol {
+    color: #2b333f
+}
+.pricingPage .pricingTable p.priceInfo {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    line-height: 50px
+}
+.pricingPage .pricingTable .priceFree p:first-child {
+    padding: 28.5px 0
+}
+.pricingPage .pricingFaqSection {
+    background: #f0f3f5;
+    padding-bottom: 90px
+}
+.pricingPage .pricingFaqSection h2 {
+    color: #2b333f;
+    padding-top: 90px;
+    padding-bottom: 50px
+}
+.pricingPage .pricingFaqSection .questions {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: box;
+    display: flex;
+    -webkit-box-lines: multiple;
+    -moz-box-lines: multiple;
+    -o-box-lines: multiple;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    text-align: left
+}
+.pricingPage .pricingFaqSection .questions .question {
+    width: 50%;
+    padding-top: 30px
+}
+.pricingPage .pricingFaqSection .questions .question h3 {
+    font-weight: 600;
+    font-size: 1pc;
+    color: #2b333f;
+    line-height: 1.3
+}
+.pricingPage .pricingFaqSection .questions .question p {
+    font-size: 14px;
+    color: #6a6a6a;
+    line-height: 1.3
+}
+.pricingPage .pricingFaqSection .questions .question:nth-of-type(odd) h3,
+.pricingPage .pricingFaqSection .questions .question:nth-of-type(odd) p {
+    padding-right: 40px
+}
+.pricingPage .pricingFaqSection .questions .question:nth-of-type(even) h3,
+.pricingPage .pricingFaqSection .questions .question:nth-of-type(even) p {
+    padding-left: 40px
+}
+@media screen and (max-width: 760px) {
+    .pricingPage .smallTable {
+        min-width: 90%;
+        width: 100%;
+        margin: 0 auto 20px;
+        text-align: center;
+        border: 0
+    }
+    .pricingPage .columns.cols3 .column.third,
+    .pricingPage .columns.cols3 .column.twoThirds {
+        clear: both;
+        padding-left: 10px;
+        padding-right: 10px;
+        width: auto;
+        float: none
+    }
+}
+@media screen and (max-width: 960px) {
+    .pricingPage .pricingTable {
+        display: block;
+        box-sizing: border-box;
+        padding: 0;
+        width: 100%;
+        max-width: 40pc
+    }
+    .pricingPage .pricingTable tbody,
+    .pricingPage .pricingTable tfoot,
+    .pricingPage .pricingTable thead {
+        border: none;
+        display: block;
+        width: 100%
+    }
+    .pricingPage .pricingTable tbody tr,
+    .pricingPage .pricingTable tfoot tr,
+    .pricingPage .pricingTable thead tr {
+        width: 100%;
+        border: none;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: box;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -moz-box-orient: horizontal;
+        -o-box-orient: horizontal;
+        -webkit-flex-flow: row;
+        -ms-flex-flow: row;
+        flex-flow: row;
+        -webkit-box-lines: multiple;
+        -moz-box-lines: multiple;
+        -o-box-lines: multiple;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap
+    }
+    .pricingPage .pricingTable tbody tr td,
+    .pricingPage .pricingTable tbody tr th,
+    .pricingPage .pricingTable tfoot tr td,
+    .pricingPage .pricingTable tfoot tr th,
+    .pricingPage .pricingTable thead tr td,
+    .pricingPage .pricingTable thead tr th {
+        border: none;
+        box-sizing: border-box;
+        width: 100%
+    }
+    .pricingPage .pricingTable tbody tr td,
+    .pricingPage .pricingTable tfoot tr td,
+    .pricingPage .pricingTable thead tr td {
+        text-align: left
+    }
+    .pricingPage .pricingTable tbody tr td.check span,
+    .pricingPage .pricingTable tbody tr td.x span,
+    .pricingPage .pricingTable tfoot tr td.check span,
+    .pricingPage .pricingTable tfoot tr td.x span,
+    .pricingPage .pricingTable thead tr td.check span,
+    .pricingPage .pricingTable thead tr td.x span {
+        display: inline-block;
+        position: relative;
+        margin-bottom: -20px;
+        vertical-align: top;
+        top: -3px
+    }
+    .pricingPage .pricingTable tbody tr td.x span,
+    .pricingPage .pricingTable tfoot tr td.x span,
+    .pricingPage .pricingTable thead tr td.x span {
+        margin-left: 3px
+    }
+    .pricingPage .pricingTable tbody tr td:before,
+    .pricingPage .pricingTable tfoot tr td:before,
+    .pricingPage .pricingTable thead tr td:before {
+        width: 40%;
+        padding-left: 20px;
+        content: attr(data-plan);
+        display: inline-block
+    }
+    .pricingPage .pricingTable thead {
+        display: none
+    }
+    .pricingPage .pricingTable tfoot tr td {
+        padding-left: 50%;
+        position: relative;
+        text-align: center
+    }
+    .pricingPage .pricingTable tfoot tr td .callToActionButton {
+        display: block;
+        text-align: center
+    }
+    .pricingPage .pricingTable tfoot tr td:before {
+        content: attr(data-plan);
+        text-align: left;
+        display: block;
+        width: 50%;
+        position: absolute;
+        left: 0;
+        top: 25px;
+        font-weight: 600
+    }
+    .pricingPage .pricingTable tbody {
+        border-top: 1px solid #dce6ea;
+        border-bottom: 1px solid #dce6ea
+    }
+    .pricingPage .pricingTable tbody tr td {
+        padding: 5px 0 25px
+    }
+    .pricingPage .pricingTable tbody tr th {
+        padding-top: 30px;
+        padding-bottom: 20px;
+        border-top: 1px solid #dce6ea
+    }
+    .pricingPage .pricingTable tbody tr th p {
+        max-width: 35em;
+        text-align: center;
+        margin: 0 auto
+    }
+    .pricingPage .pricingTable tbody tr:first-child th {
+        border-top: none
+    }
+    .pricingPage .pricingTable tbody h3 {
+        font-weight: 600;
+        font-size: 18px;
+        padding-top: 5px;
+        margin: 0 auto;
+        text-align: center
+    }
+    .pricingPage .pricingTable .priceFree p:first-child {
+        padding-top: 0
+    }
+    .pricingPage .pricingFaqSection .questions .question {
+        width: 100%
+    }
+    .pricingPage .pricingFaqSection .questions .question:nth-of-type(even) h3,
+    .pricingPage .pricingFaqSection .questions .question:nth-of-type(even) p {
+        padding-left: 0
+    }
+}
+.pricingPage .pricingTable tbody td.check span:before,
+.pricingPage .pricingTable tbody td.x span:before {
+    visibility: visible;
+    content: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjYiIGhlaWdodD0iMTkiIHZpZXdCb3g9IjAgMCAyNiAxOSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+eWVzPC90aXRsZT48cGF0aCBkPSJNOS40ODUgMTMuNzk5TDQuMjUgOC41NjJBMiAyIDAgMSAwIDEuNDIgMTEuMzlsNS42NDQgNS42NDZjLjE3Ny4xNzcuMzguMzE0LjU5Ni40MTJhMS45OTggMS45OTggMCAwIDAgMy4yNDIuNTlMMjUuMDM4IDMuOTAzYy43ODQtLjc4My43ODUtMi4wNS4wMDQtMi44MzJhMS45OTggMS45OTggMCAwIDAtMi44MzIuMDA0TDkuNDg1IDEzLjc5OXoiIGZpbGw9IiM0OUNDOTAiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==);
+    display: inline-block
+}
+.pricingPage .pricingTable tbody td.x span {
+    width: 19px;
+    height: 24px
+}
+.pricingPage .pricingTable tbody td.x span:before {
+    content: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkiIGhlaWdodD0iMTkiIHZpZXdCb3g9IjAgMCAxOSAxOSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+bm88L3RpdGxlPjxwYXRoIGQ9Ik02LjI0MiA5LjA3MkwuNTg4IDE0LjcyNWEyLjAwMiAyLjAwMiAwIDAgMC0uMDAzIDIuODMyYy43ODYuNzg3IDIuMDQ5Ljc4IDIuODMyLS4wMDNMOS4wNyAxMS45bDUuNjU0IDUuNjUzYy43ODMuNzgzIDIuMDQ1Ljc5IDIuODMxLjAwM2EyLjAwMiAyLjAwMiAwIDAgMC0uMDAzLTIuODMybC01LjY1My01LjY1MyA1LjY1My01LjY1M2MuNzgzLS43ODQuNzg1LTIuMDUxLjAwMy0yLjgzMmExLjk5OCAxLjk5OCAwIDAgMC0yLjgzMS4wMDNMOS4wNyA2LjI0NCAzLjQxNy41OUExLjk5OCAxLjk5OCAwIDAgMCAuNTg1LjU4N2EyLjAwMiAyLjAwMiAwIDAgMCAuMDAzIDIuODMybDUuNjU0IDUuNjUzeiIgZmlsbD0iI0FGQ0JENCIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+)
+}
+.pricingPage .pricingTable tfoot .btn{
+    margin: 28.5px 0;
+}
+.active-column{
+    background: #FAFAFA
+}

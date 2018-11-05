@@ -1,0 +1,32 @@
+{
+  "name": "moderndeveloperllc/scrypt",
+  "description": "Class to generate scrypt password hashes that are compatible with the wg/scrypt Java implementation",
+  "require": {
+    "php": "^5.6 || ^7.0",
+    "zendframework/zend-crypt": "^3.0",
+    "zendframework/zend-math": "^3.0"
+  },
+  "suggest": {
+    "ext-scrypt": "This module will be excruciatingly slow without it."
+  },
+  "authors": [
+    {
+      "name": "Mark Garrett",
+      "email": "mark@moderndeveloperllc.com"
+    }
+  ],
+  "keywords": [
+    "scrypt",
+    "security",
+    "hashing",
+    "password"
+  ],
+  "autoload": {
+    "psr-4": {
+      "ModDev\\Password\\": "library/"
+    }
+  },
+  "type": "library",
+  "license": "BSD-3",
+  "homepage": "https://bitbucket.org/moderndeveloperllc/scrypt-lib"
+}

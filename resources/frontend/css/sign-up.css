@@ -1,0 +1,61 @@
+.tab-content{
+	box-shadow: none !important;
+}
+.widht-800{
+	width: 800px;
+}
+.nav.nav-tabs{
+	box-shadow: none !important;
+	border-bottom: 1px solid #ddd;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover, .tabs-vertical > li.active > a, .tabs-vertical > li.active > a:focus, .tabs-vertical > li.active > a:hover{
+	color: #222 !important;
+}
+.nav.nav-tabs > li > a:hover,
+.nav.tabs-vertical > li > a:hover {
+	color: #00aaff !important;
+}
+.nav.nav-tabs + .tab-content{
+	padding: 30px 0 !important;
+}
+label{color: #222 !important}
+.choice .card-box{
+	padding: 20px 20px !important;
+	padding-left: 130px !important;
+    padding-right: 25px !important;
+    position: relative;
+    margin-bottom: 15px;
+    border: 2px solid transparent;
+    border-radius: 4px;
+}
+.choice .card-box:hover{
+	cursor: pointer;
+	border: 2px solid #1cb933;
+	background: rgba(255,  255,  255, 0.99);
+}
+.choice .card-box img{
+	position: absolute;
+    left: 25px;
+    top: 30px;
+    height: 60px;
+}
+.choice .card-box h3{
+	font-size: 22px;
+    margin-bottom: 5px;
+    color: #253b67;
+}
+
+.choice .card-box p{margin-bottom: 0;}
+a.text-primary:focus, a.text-primary:hover{
+	color: #0791d5 !important;
+}
+.nav.nav-tabs > li.active > a{
+	border: 1px solid #fff;
+}
+.nav.nav-tabs + .tab-content{
+	border: none !important;
+}
+.nav.nav-tabs > li.active > a {
+	border-bottom: 2px solid #00aaff;
+}
