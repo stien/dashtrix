@@ -76,8 +76,8 @@ var Connector = function () {
             key: null,
             namespace: 'App.Events'
         };
-        this.setOptions(options);
-        this.connect();
+       // this.setOptions(options);
+      //  this.connect();
     }
 
     createClass(Connector, [{
@@ -1035,21 +1035,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	    host: 'ws.pusherapp.com',
 	    ws_port: 80,
 	    wss_port: 443,
-	    sockjs_host: 'sockjs.pusher.com',
+	    sockjs_host: 'sockjs.ppusher.com', //not pusher
 	    sockjs_http_port: 80,
 	    sockjs_https_port: 443,
 	    sockjs_path: "/pusher",
-	    stats_host: 'stats.pusher.com',
+	    stats_host: 'stats.ppusher.com',
 	    channel_auth_endpoint: '/pusher/auth',
 	    channel_auth_transport: 'ajax',
 	    activity_timeout: 120000,
 	    pong_timeout: 30000,
 	    unavailable_timeout: 10000,
-	    cdn_http: 'http://js.pusher.com',
-	    cdn_https: 'https://js.pusher.com',
+	    cdn_http: 'http://js.ppusher.com',
+	    cdn_https: 'https://js.ppusher.com',
 	    dependency_suffix: ''
 	};
-	exports.__esModule = true;
+	exports.__esModule = false;
 	exports["default"] = Defaults;
 
 

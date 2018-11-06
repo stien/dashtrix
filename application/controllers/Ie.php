@@ -12,7 +12,7 @@ class Ie extends CI_Controller {
         if (isset($_SERVER["HTTP_CF_CONNECTING_IP"])) {
             $_SERVER['REMOTE_ADDR'] = $_SERVER["HTTP_CF_CONNECTING_IP"];
         }
-        $this->data['accounts_url'] = 'http://accounts.icodashboard.io/';
+        $this->data['accounts_url'] = 'http://accounts.blocktrics.io/';
         $this->load->library('form_validation');
         $this->load->helper('url');
         $this->load->database();

@@ -387,7 +387,7 @@ function am_i($name){
     {
         return true;
     }
-    if($name=="demo" && base_url()=="https://demo.icodashboard.io/")
+    if($name=="demo" && base_url()=="https://demo.blocktrics.io/")
     {
         return true;
     }

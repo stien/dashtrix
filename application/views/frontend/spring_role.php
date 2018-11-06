@@ -21,7 +21,7 @@ SpringRole’s Advisory Verification product features help to eliminate the prob
 
             <br>
             <p>
-                Save 20% by signing up through ICODashboard. Use the discount code “icodash20” when registering.
+                Save 20% by signing up through us. Use the discount code “dashtrix20” when registering.
             </p>
 
             <br>

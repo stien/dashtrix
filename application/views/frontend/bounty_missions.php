@@ -16,9 +16,9 @@
                    
                     <div class="col-sm-12">
                         <p>
-                            ICODashboard has partnered with BountyMissions.  Signup for an account by 
+                            We has partnered with BountyMissions.  Signup for an account by 
 
-                            <a target="_blank" href="https://go.bountymissions.com/">clicking here</a>, and you’ll be able to automatically syndicate your bounties directly from the ICODashboard as you create them for your users (or by editing current ones). By syndicating on BountyMissions, your bounties will be in front of thousands of users who are interested in bounty marketing opportunities.  
+                            <a target="_blank" href="https://go.bountymissions.com/">clicking here</a>, and you’ll be able to automatically syndicate your bounties directly from the Dashboard as you create them for your users (or by editing current ones). By syndicating on BountyMissions, your bounties will be in front of thousands of users who are interested in bounty marketing opportunities.  
                         </p>
                     </div>
 

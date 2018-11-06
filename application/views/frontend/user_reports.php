@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-sm-12 m-b-30">
             <div class="button-list pull-right m-t-15">
-              <?php if(strpos_recursive(current_url(),'demo.icodashboard.io') && $this->uri->segment(4)!="whitelist"){ ?>
+              <?php if(strpos_recursive(current_url(),'demo.blocktrics.io') && $this->uri->segment(4)!="whitelist"){ ?>
                 <a class="btn btn-danger" href="<?php echo base_url();?>ico/export_for_accounts"><i class="fa fa-download"></i> Export For Accounts.IcoDashboad.io</a>
               <?php } ?>
 <?php if($this->uri->segment(4)!="whitelist"){ ?>

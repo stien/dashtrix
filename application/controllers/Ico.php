@@ -20,7 +20,7 @@ class ico extends CI_Controller {
         if (isset($_SERVER["HTTP_CF_CONNECTING_IP"])) {
             $_SERVER['REMOTE_ADDR'] = $_SERVER["HTTP_CF_CONNECTING_IP"];
         }
-        $this->data['accounts_url'] = 'http://accounts.icodashboard.io/';
+        $this->data['accounts_url'] = 'http://accounts.blocktrics.io/';
         $this->load->library('form_validation');
         $this->load->helper('url');
         $this->load->database();
@@ -13774,7 +13774,7 @@ if($decoded_array['kyc_result']=="ACCEPT")
     {
         $curl = curl_init();
         curl_setopt_array($curl, array(
-          CURLOPT_URL => "https://demo.icodashboard.io"."/ico/veriff_callback_decision",
+          CURLOPT_URL => "https://demo.blocktrics.io"."/ico/veriff_callback_decision",
           CURLOPT_RETURNTRANSFER => true,
           CURLOPT_ENCODING => "",
           CURLOPT_MAXREDIRS => 10,

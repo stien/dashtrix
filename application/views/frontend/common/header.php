@@ -382,9 +382,9 @@
                                 
                                 <li><a href="#"><i class="md md-content-copy  m-r-10"></i> Referral Reports </a></li>
 
+                                <?php /* ?>
                                 <li class="divider"></li>
 
-                                <?php /* ?>
                                 <?php */ ?>
 
                             </ul>
@@ -417,7 +417,7 @@
                     </li>
                     <?php } ?>
                     <?php } ?>
-                    <?php if(role_exists(5)){ ?>
+                    <?php /*if(role_exists(5)){ ?>
 
                     <li class="dropdown navbar-c-items">
                         <a href="javascript:;" class="dropdown-toggle waves-effect waves-light profile" data-toggle="dropdown" aria-expanded="true">
@@ -436,19 +436,19 @@
 								<?php */ ?>
 
 
-                                <li><a href="<?php echo base_url().'admin/sponsored-predictions' ?>"><i class="md md-content-copy  m-r-10"></i> Sponsored Predictions</a></li>
+                          <!--       <li><a href="<?php echo base_url().'admin/sponsored-predictions' ?>"><i class="md md-content-copy  m-r-10"></i> Sponsored Predictions</a></li>
                                  <li><a href="<?php echo base_url().'spring-role'; ?>"><i class="md md-content-copy  m-r-10"></i> Spring Role</a></li>
 
-                                <li><a href="<?php echo base_url().'admin/create-smart-contract' ?>"><i class="md md-content-copy  m-r-10"></i> Token Creation</a></li>
+                                <li><a href="<?php echo base_url().'admin/create-smart-contract' ?>"><i class="md md-content-copy  m-r-10"></i> Token Creation</a></li> -->
 <?php /* ?>
                                 <li><a href="<?php echo base_url().'#' ?>"><i class="md md-content-copy  m-r-10"></i> GDPR Scanner</a></li>
                                 <?php */ ?>
 
 
 
-							</ul>
-                    </li>
-                    <?php } ?>
+				<!-- 			</ul>
+                    </li> -->
+                    <?php/* } */ ?>
                    
 
 
