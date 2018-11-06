@@ -3,12 +3,11 @@
   RewriteCond $1 !^(index\.php|resources|robots\.txt)
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
-RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
   RewriteRule ^(.*)$ index.php?/$1 [L,QSA]
 
 #RewriteCond %{HTTPS} off
 #RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
 
 </IfModule>
 
