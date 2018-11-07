@@ -15,11 +15,11 @@
         <div class="col-md-8">
             
 <div class="card-box widget-box-1">
-                <h4 class="header-title m-t-0 m-b-30 text-center">Aperture Board Platform Dashboard Support Base</h4>
+                <h4 class="header-title m-t-0 m-b-30 text-center">Launch Stack Platform Dashboard Support Base</h4>
 
 
 
-                <p class="text-center">Welcome to the Aperture Board Platform Admin Support page. We’ve provided you with a wealth of tools
+                <p class="text-center">Welcome to the Launch Stack Admin Support page. We’ve provided you with a wealth of tools
 and features to setup, manage and market your ICO campaign or token sale. Please refer to the
 support base links below which serve as a helpful guide for navigating the system and using the
 available features.</p>
@@ -61,7 +61,7 @@ available features.</p>
     If you have additional questions or need further help, please contact our support team at 
 </p> <br> 
 <p class="text-center">
-    <a href="mailto:support@apertureboard.io">support@apertureboard.io</a>
+    <a href="mailto:support@LaunchStack.co">support@LaunchStack.co</a>
 </p>
  <br> 
  <p class="text-center">

@@ -1,108 +1,6 @@
 <?php require_once("common/header.php");?>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url().'resources/frontend/css/circle.css'; ?>">
 
-
-
-
-<?php /*?> 
-/// updated
-
-       <!-- Page-Title -->
-
-<div class="row">
-
-    <div class="col-sm-12 m-b-30">
-
-        <div class="button-list pull-right m-t-15">
-
-            <a class="btn btn-white" href="requests-group.html">Join group request</a>
-
-            <a class="btn btn-default" href="requests-draft-create.html">Create request</a>
-
-        </div>
-
-
-
-        <h4 class="page-title">Dashboard</h4>
-
-        <p class="text-muted">Hello <b>Inspiron Trade</b>!</p>
-
-    </div>
-
-</div>
-
-<div class="row">
-
-    <div class="col-md-8">
-
-
-
-        <div class="card-box widget-box-1">
-
-            <h4 class="header-title m-t-0">Requests</h4>
-
-
-
-        </div>
-
-
-
-    </div>
-
-    <!-- end col -->
-
-
-
-    <div class="col-md-3 col-md-offset-1">
-
-        <div class="widget-box-2">
-
-            <h4 class="header-title m-t-0">Account</h4>
-
-            <p class="text-muted font-13">
-
-                You are currently on starter plan.
-
-            </p>
-
-            <a href="packages.html" type="button" class="btn btn-white waves-effect">Upgrade package</a>
-
-            <hr>
-
-            <h4 class="header-title m-t-0 m-b-15">Help</h4>
-
-            <a href="#" class="font-13">Energy Premier guide</a>
-
-            <br />
-
-            <a href="#" class="font-13">Get started</a>
-
-            <hr>
-
-            <h4 class="header-title m-t-0 m-b-15">Blog</h4>
-
-            <a href="#" class="font-13">Blog article name</a>
-
-            <br />
-
-            <a href="#" class="font-13">Blog sample</a>
-
-            <br />
-
-            <a href="#" class="font-13">Sample article</a>
-
-        </div>
-
-    </div>
-
-    <!-- end col -->
-
-</div><?php */?>
-
-
-
-
-
     <?php if(isset($_SESSION['thankyou'])){?>
 
             <div class="col-md-12">
@@ -719,7 +617,7 @@ $days_percent = $days_percent<=100?$days_percent:100;
 
   			<div class="col-sm-3 m-b-30">
 
-				<div class="card-box widget-box-1 boxdisplay">
+				<div class="card-box widget-box-1 boxdisplay users">
 
 					<span><?php echo number_format($this->front_model->totalusers());?></span>
 

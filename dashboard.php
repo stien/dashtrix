@@ -1,103 +1,233 @@
-<?php require_once("common/header.php");?>
+<?php /*
+ *---------------------------------------------------------------
+ * SYSTEM DIRECTORY NAME
+ *---------------------------------------------------------------
+ *
+ * This variable must contain the name of your "system" directory.
+ * Set the path if it is not in the same directory as this file.
+ */
+    $system_path = 'system';
+
+/*
+ *---------------------------------------------------------------
+ * APPLICATION DIRECTORY NAME
+ *---------------------------------------------------------------
+ *
+ * If you want this front controller to use a different "application"
+ * directory than the default one you can set its name here. The directory
+ * can also be renamed or relocated anywhere on your server. If you do,
+ * use an absolute (full) server path.
+ * For more info please see the user guide:
+ *
+ * https://codeigniter.com/user_guide/general/managing_apps.html
+ *
+ * NO TRAILING SLASH!
+ */
+    $application_folder = 'application';
+
+/*
+ *---------------------------------------------------------------
+ * VIEW DIRECTORY NAME
+ *---------------------------------------------------------------
+ *
+ * If you want to move the view directory out of the application
+ * directory, set the path to it here. The directory can be renamed
+ * and relocated anywhere on your server. If blank, it will default
+ * to the standard location inside your application directory.
+ * If you do move this, use an absolute (full) server path.
+ *
+ * NO TRAILING SLASH!
+ */
+    $view_folder = '';
+
+
+/*
+ * --------------------------------------------------------------------
+ * DEFAULT CONTROLLER
+ * --------------------------------------------------------------------
+ *
+ * Normally you will set your default controller in the routes.php file.
+ * You can, however, force a custom routing by hard-coding a
+ * specific controller class/function here. For most applications, you
+ * WILL NOT set your routing here, but it's an option for those
+ * special instances where you might want to override the standard
+ * routing in a specific front controller that shares a common CI installation.
+ *
+ * IMPORTANT: If you set the routing here, NO OTHER controller will be
+ * callable. In essence, this preference limits your application to ONE
+ * specific controller. Leave the function name blank if you need
+ * to call functions dynamically via the URI.
+ *
+ * Un-comment the $routing array below to use this feature
+ */
+    // The directory name, relative to the "controllers" directory.  Leave blank
+    // if your controller is not in a sub-directory within the "controllers" one
+    // $routing['directory'] = '';
+
+    // The controller class file name.  Example:  mycontroller
+    // $routing['controller'] = '';
+
+    // The controller function you wish to be called.
+    // $routing['function'] = '';
+
+
+/*
+ * -------------------------------------------------------------------
+ *  CUSTOM CONFIG VALUES
+ * -------------------------------------------------------------------
+ *
+ * The $assign_to_config array below will be passed dynamically to the
+ * config class when initialized. This allows you to set custom config
+ * items or override any default config values found in the config.php file.
+ * This can be handy as it permits you to share one application between
+ * multiple front controller files, with each file containing different
+ * config values.
+ *
+ * Un-comment the $assign_to_config array below to use this feature
+ */
+    // $assign_to_config['name_of_config_item'] = 'value of config item';
+
+
+
+// --------------------------------------------------------------------
+// END OF USER CONFIGURABLE SETTINGS.  DO NOT EDIT BELOW THIS LINE
+// --------------------------------------------------------------------
+
+/*
+ * ---------------------------------------------------------------
+ *  Resolve the system path for increased reliability
+ * ---------------------------------------------------------------
+ */
+
+    // Set the current directory correctly for CLI requests
+    if (defined('STDIN'))
+    {
+        chdir(dirname(__FILE__));
+    }
+
+    if (($_temp = realpath($system_path)) !== FALSE)
+    {
+        $system_path = $_temp.DIRECTORY_SEPARATOR;
+    }
+    else
+    {
+        // Ensure there's a trailing slash
+        $system_path = strtr(
+            rtrim($system_path, '/\\'),
+            '/\\',
+            DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+        ).DIRECTORY_SEPARATOR;
+    }
+
+    // Is the system path correct?
+    if ( ! is_dir($system_path))
+    {
+        header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+        echo 'Your system folder path does not appear to be set correctly. Please open the following file and correct this: '.pathinfo(__FILE__, PATHINFO_BASENAME);
+        exit(3); // EXIT_CONFIG
+    }
+
+/*
+ * -------------------------------------------------------------------
+ *  Now that we know the path, set the main path constants
+ * -------------------------------------------------------------------
+ */
+    // The name of THIS file
+    define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
+
+    // Path to the system directory
+    define('BASEPATH', $system_path);
+
+    // Path to the front controller (this file) directory
+    define('FCPATH', dirname(__FILE__).DIRECTORY_SEPARATOR);
+
+    // Name of the "system" directory
+    define('SYSDIR', basename(BASEPATH));
+
+    // The path to the "application" directory
+    if (is_dir($application_folder))
+    {
+        if (($_temp = realpath($application_folder)) !== FALSE)
+        {
+            $application_folder = $_temp;
+        }
+        else
+        {
+            $application_folder = strtr(
+                rtrim($application_folder, '/\\'),
+                '/\\',
+                DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+            );
+        }
+    }
+    elseif (is_dir(BASEPATH.$application_folder.DIRECTORY_SEPARATOR))
+    {
+        $application_folder = BASEPATH.strtr(
+            trim($application_folder, '/\\'),
+            '/\\',
+            DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+        );
+    }
+    else
+    {
+        header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+        echo 'Your application folder path does not appear to be set correctly. Please open the following file and correct this: '.SELF;
+        exit(3); // EXIT_CONFIG
+    }
+
+    define('APPPATH', $application_folder.DIRECTORY_SEPARATOR);
+
+    // The path to the "views" directory
+    if ( ! isset($view_folder[0]) && is_dir(APPPATH.'views'.DIRECTORY_SEPARATOR))
+    {
+        $view_folder = APPPATH.'views';
+    }
+    elseif (is_dir($view_folder))
+    {
+        if (($_temp = realpath($view_folder)) !== FALSE)
+        {
+            $view_folder = $_temp;
+        }
+        else
+        {
+            $view_folder = strtr(
+                rtrim($view_folder, '/\\'),
+                '/\\',
+                DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+            );
+        }
+    }
+    elseif (is_dir(APPPATH.$view_folder.DIRECTORY_SEPARATOR))
+    {
+        $view_folder = APPPATH.strtr(
+            trim($view_folder, '/\\'),
+            '/\\',
+            DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+        );
+    }
+    else
+    {
+        header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+        echo 'Your view folder path does not appear to be set correctly. Please open the following file and correct this: '.SELF;
+        exit(3); // EXIT_CONFIG
+    }
+
+    define('VIEWPATH', $view_folder.DIRECTORY_SEPARATOR);
+
+
+/*
+ * --------------------------------------------------------------------
+ * LOAD THE BOOTSTRAP FILE
+ * --------------------------------------------------------------------
+ *
+ * And heeeeeeere we go...
+ */
+
+require_once BASEPATH.'core/CodeIgniter.php';
+
+require_once("common/header.php");?>
+
 <link rel="stylesheet" type="text/css" href="<?php echo base_url().'resources/frontend/css/circle.css'; ?>">
-
-
-
-
-<?php /*?>        <!-- Page-Title -->
-
-<div class="row">
-
-    <div class="col-sm-12 m-b-30">
-
-        <div class="button-list pull-right m-t-15">
-
-            <a class="btn btn-white" href="requests-group.html">Join group request</a>
-
-            <a class="btn btn-default" href="requests-draft-create.html">Create request</a>
-
-        </div>
-
-
-
-        <h4 class="page-title">Dashboard</h4>
-
-        <p class="text-muted">Hello <b>Inspiron Trade</b>!</p>
-
-    </div>
-
-</div>
-
-<div class="row">
-
-    <div class="col-md-8">
-
-
-
-        <div class="card-box widget-box-1">
-
-            <h4 class="header-title m-t-0">Requests</h4>
-
-
-
-        </div>
-
-
-
-    </div>
-
-    <!-- end col -->
-
-
-
-    <div class="col-md-3 col-md-offset-1">
-
-        <div class="widget-box-2">
-
-            <h4 class="header-title m-t-0">Account</h4>
-
-            <p class="text-muted font-13">
-
-                You are currently on starter plan.
-
-            </p>
-
-            <a href="packages.html" type="button" class="btn btn-white waves-effect">Upgrade package</a>
-
-            <hr>
-
-            <h4 class="header-title m-t-0 m-b-15">Help</h4>
-
-            <a href="#" class="font-13">Energy Premier guide</a>
-
-            <br />
-
-            <a href="#" class="font-13">Get started</a>
-
-            <hr>
-
-            <h4 class="header-title m-t-0 m-b-15">Blog</h4>
-
-            <a href="#" class="font-13">Blog article name</a>
-
-            <br />
-
-            <a href="#" class="font-13">Blog sample</a>
-
-            <br />
-
-            <a href="#" class="font-13">Sample article</a>
-
-        </div>
-
-    </div>
-
-    <!-- end col -->
-
-</div><?php */?>
-
-
-
 
 
     <?php if(isset($_SESSION['thankyou'])){?>
@@ -148,12 +278,7 @@
 
 			</div>
 
-			
-
 			<div class="row">
-
-
-
 
 				<div class="col-sm-3 m-b-30">
 
@@ -244,10 +369,6 @@
             <div class="row">
 
 
-
-
-
-
                 <div class="col-sm-3 m-b-30">
 
                     <div class="card-box widget-box-1 boxdisplay bg64cbe0 crlfff">
@@ -257,8 +378,6 @@
 							<?php
 
  $current_active_camp = $this->front_model->get_query_simple('*','dev_web_ico_settings',array('id'=>$current_otken_price->ico_camp))->result_object()[0];
-
-    
 
 
 $now = time(); // or your date as well
@@ -328,7 +447,6 @@ echo $x_roun_day_left>0?$x_roun_day_left:'No';
 
                 </div>
 
-
                 <div class="col-sm-3 m-b-30" >
                     <?php
 
@@ -355,12 +473,7 @@ echo $x_roun_day_left>0?$x_roun_day_left:'No';
 
                 </div>
 
-
-
-
         </div>
-
-			
 
 	</div>
 
@@ -373,8 +486,6 @@ echo $x_roun_day_left>0?$x_roun_day_left:'No';
             <a class="btn btn-default" href="<?php echo base_url().'buy-tokens'; ?>">Buy Tokens</a>
 
         </div>
-
-
 
         <h4 class="page-title">Transactions</h4>
 
@@ -847,8 +958,6 @@ echo $x_roun_day_left>0?$x_roun_day_left:'No';
 
 			</div>	
 
-  			
-
   			<div class="col-sm-4 m-b-30">
 
 				<div class="card-box widget-box-1 boxdisplay visits">
@@ -858,17 +967,13 @@ echo $x_roun_day_left>0?$x_roun_day_left:'No';
 
 					<p>Visitors</p>
 
-                   
-
 				</div>	
 
 			</div>	
 
-  			
-
   			<div class="col-sm-4 m-b-30">
 
-				<div class="card-box widget-box-1 boxdisplay">
+				<div class="card-box widget-box-1 boxdisplay users">
 
 					<span><?php echo number_format($this->front_model->totalusers());?></span>
 
@@ -899,16 +1004,10 @@ $your_date_before = round($your_date_before / (60 * 60 * 24));
 
   $x_roun_day_left =  round($datediff / (60 * 60 * 24));
 
-
-
   $days_percent = $x_roun_day_left>0?$x_roun_day_left:0;
-
- 
 
  $days_percent = ($days_percent/$your_date_before)*100;
  $days_percent = number_format($days_percent);
-
-
 
  //tokens sold in this campaign
  $go_in_past = $your_date_before - $x_roun_day_left;
@@ -944,15 +1043,12 @@ $average_token_sold = $tokens_this_camp/$go_in_past;
 $average_revenue = $usd_payment/$go_in_past;
 $average_token_buyers = $total_token_buyers/$go_in_past;
 
-
-
  $token_revenue = $current_active_camp->tokens_for_sale*$current_otken_price->tokenPrice;
 
 $token_revenue = ($usd_payment/$token_revenue)*100;
 
  ?>
-  			
-
+  		
   			<div class="col-sm-4 m-b-30">
 
 				<div class="card-box widget-box-1 boxdisplay easy" style="padding-bottom: 10px; padding-top:10px;">

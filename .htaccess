@@ -35,5 +35,3 @@ ExpiresDefault "access 1 month"
  <FilesMatch "\.(js|css|jpg|jpeg|png|gif|xml|gz)$">
   Header append Vary: Accept-Encoding
  </FilesMatch>
-
-</IfModule>

@@ -1757,7 +1757,9 @@ input:-webkit-autofill:active {
 .boxdisplay.trans {
     background: #73A0B3;
 }
-
+.visits, .users {
+    border-left: 2px solid #2c3b43;
+}
 .bgdark { border: 1px solid #f0f0f0; background: #f0f0f0; padding: 10px; border-radius: 3px;}
 .usrinfodip { font-size: 11px;}
 .usrinfodip p { margin-bottom: 10px !important; }
@@ -2330,9 +2332,9 @@ ul.navigation-menu a:first-child {
 }
 
 .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
-    color: #262626;
+    color: #ffffff;
     text-decoration: none;
-    background-color: #f5f5f5b3;
+    background-color: #a5a5a5b3;
 }
 .btn-group ul.dropdown-menu {
     left: -1px;

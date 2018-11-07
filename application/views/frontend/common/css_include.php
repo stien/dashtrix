@@ -249,7 +249,8 @@
 }
 	/*-----------------*/
 	#topnav .navigation-menu > li > a:hover {
-  color: <?php echo $this_web_primary; ?>;
+  color: #ffffff !important;
+    background-color: #262f35f2;
 }
 	/*-----------------*/
 	#topnav .navigation-menu > li > a:hover i {
@@ -273,7 +274,7 @@
 }
 	/*-----------------*/
 	 #topnav .navigation-menu > li:hover a {
-    color: <?php echo $this_web_primary; ?>;
+    color: white;
   }
 	/*-----------------*/
 	 #topnav .navigation-menu > li:hover a i {
