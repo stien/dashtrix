@@ -292,42 +292,6 @@ class front_model extends CI_Model {
 
 	
 
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
 	// Get ALL CATEGORIES
 
 	public function get_categoriesmain(){

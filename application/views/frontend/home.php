@@ -53,9 +53,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <div class="col-sm-12 text-center">
             <p style="margin-top: 30px;" class="<?php if(strpos(strtolower($color_bg),'fff') !== false || strpos(strtolower($color_bg),'fffff') !== false) { } else { ?>text-white <?php } ?>">
-                Create an account to participate in Yanu token sale <br> <a href="<?php echo base_url();?>signup/step"
-                                                 class="text-primary m-l-5">Sign Up <i
-                            class="fa fa-angle-right"></i></a>
+                Create an account to participate in Yanu token sale <br> <a href="<?php echo base_url();?>signup/step" class="text-primary m-l-5">Sign Up <i class="fa fa-angle-right"></i></a>
             </p>
         </div>
     </div>
@@ -347,12 +345,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div id="phrase_box">
   <svg width="100%" height="100%">
     <defs>
-      <!--<style type="text/css">
-        @font-face {
-          font-family: "Proxima";
-          src: url('');
-        }
-      </style>-->
       <mask id="mask" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse">
         <linearGradient id="linearGradient" gradientUnits="objectBoundingBox" x2="0" y2="1">
           <stop stop-color="white" stop-opacity="0" offset="0%"/>

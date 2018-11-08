@@ -24,24 +24,7 @@
 </head>
 
 <body>
-    <?php if(am_i('securix')){ 
 
-
-        if($this->uri->segment(1)=="thank-you-for-your-purchase")
-    { ?>
-
-        <!-- Google Tag Manager (noscript) thankyou wala-->
-
-<!-- End Google Tag Manager (noscript) -->
-
-
-    <?php }else{ ?>
-       <!-- Google Tag Manager (noscript) -->
-
-<!-- End Google Tag Manager (noscript) -->
-
-
-    <?php }} ?>
 <div class="wrapper sponsoredw">
     <div class="container sponsored on_kyc_margin_bottom_100">
 

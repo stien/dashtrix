@@ -246,7 +246,7 @@ if ( ! is_php('5.4'))
 
 	if (extension_loaded('mbstring'))
 	{
-		define('MB_ENABLED', TRUE);
+		define('MB_ENABLED', FALSE);
 		// mbstring.internal_encoding is deprecated starting with PHP 5.6
 		// and it's usage triggers E_DEPRECATED messages.
 		@ini_set('mbstring.internal_encoding', $charset);
@@ -263,7 +263,7 @@ if ( ! is_php('5.4'))
 	// iconv's predefined constants is "strongly discouraged".
 	if (extension_loaded('iconv'))
 	{
-		define('ICONV_ENABLED', TRUE);
+		define('ICONV_ENABLED', FALSE);
 		// iconv.internal_encoding is deprecated starting with PHP 5.6
 		// and it's usage triggers E_DEPRECATED messages.
 		@ini_set('iconv.internal_encoding', $charset);

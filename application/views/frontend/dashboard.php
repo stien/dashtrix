@@ -1,4 +1,10 @@
-<?php require_once("common/header.php");?>
+<?php 
+require_once("common/header.php");
+// error_reporting(E_ALL);
+// show_error($message, $status_code, $heading = 'An Error Was Encountered');
+// echo $message;
+// echo $status_code;
+?>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url().'resources/frontend/css/circle.css'; ?>">
 
     <?php if(isset($_SESSION['thankyou'])){?>

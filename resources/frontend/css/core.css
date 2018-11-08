@@ -2366,7 +2366,7 @@ ul.dropdown-menu.userDrop:before, ul.dropdown-menu.notyfy:before, .btn-group ul.
   flex-flow: column;
   height: 150px;
   overflow: hidden;
-  width: 350px;
+  width: 315px;
 }
 
 #phrases {

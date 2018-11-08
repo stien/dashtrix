@@ -225,7 +225,9 @@
 
 require_once BASEPATH.'core/CodeIgniter.php';
 
-require_once("common/header.php");?>
+// require_once("common/header.php");
+// error_reporting(E_ALL);
+?>
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url().'resources/frontend/css/circle.css'; ?>">
 

@@ -579,10 +579,6 @@ class ico extends CI_Controller {
 
         }       
 
-
-
-
-
     }
 //	public function banned_countries()
 //    {
@@ -597,6 +593,7 @@ class ico extends CI_Controller {
     // ACCOUNT LOGIN
     public function do_login_account()
     {
+
         if(CAPTCHA==1){
             if(!$this->verify_captcha())
             {
@@ -612,10 +609,7 @@ class ico extends CI_Controller {
             'uEmail'    =>  $this->input->post('username')
         );
 
-
-
        echo $this->if_old_md5($arr['uEmail'])?"cov":"";
-
 
         // print_r($arr);exit;
         $datashow = $this->front_model->get_query_simple('*','dev_web_user',$arr);
@@ -629,7 +623,9 @@ class ico extends CI_Controller {
                 unset($_SESSION['JobsSessions']);
                 $_SESSION['error'] = 'Your account has been banned from administrator, please contact administrator to reactivate your account!';
                 header ( "Location:" . $this->config->base_url ()."login");
-            }else {
+
+            } else {
+
                 ///// two factor
                 $two_fact = $this->front_model->get_query_simple('*','dev_web_two_factor',array('id'=>1))->result_object()[0];
 
@@ -660,6 +656,8 @@ class ico extends CI_Controller {
                         }
                     }
                 }
+
+
                 $data = array(
                     'uIP'          => $_SERVER['REMOTE_ADDR'],
                     'uLoginLast'    => date("Y-m-d H:i:s"),
