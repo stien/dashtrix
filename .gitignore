@@ -1,3 +1,4 @@
 *.log
 database.php
 config.php
+phpinfo.php

@@ -82,19 +82,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             <?php } ?>
 
-            <form method="POST" action="<?php echo base_url();?>do/login" accept-charset="UTF-8" role="form">
+           <form method="POST" action="<?php echo base_url();?>do/login" accept-charset="UTF-8" role="form">
+            <!--    <form  accept-charset="UTF-8" role="form"> -->
 
             <div class="col-md-12">
                 <div class="form-group">
                     <!-- <label>Email Address: <sup>*</sup></label> -->
-                    <input name="username" class="form-control uname" type="text" required="" value="" placeholder="Email Address">
+                    <input name="username" id="username" class="form-control uname" type="text" required="" value="" placeholder="Email Address">
                 </div>
             </div>
 
             <div class="col-md-12">
                 <div class="form-group">
                     <!-- <label>Password: <sup>*</sup></label> -->
-                    <input name="password" class="form-control pss" type="password" required="" placeholder="Password">
+                    <input name="password" id="password" class="form-control pss" type="password" required="" placeholder="Password">
                 </div>
             </div>
             <?php if(CAPTCHA==1){ ?>
@@ -171,6 +172,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script>
     jQuery(document).ready(function(){
 
+              var tim = 0;
+
         $("form").validate({
             errorElement: 'span',
             errorClass: 'help-block error-help-block',
@@ -197,7 +200,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
              },
              */
             success: function(element) {
+
                 $(element).closest('.form-group').removeClass('has-error'); //.addClass('has-success'); // remove the Boostrap error class from the control group
+
+                if (tim == 0) {
+                  tim = tim + 1;
+                } else {
+
+                // alert('post it baby')
+
+                 // $.post("<?php echo base_url();?>do/login",
+                 //      {
+                 //          username: $('#username').val(),
+                 //          password: $('#password').val()
+                 //      },
+                 //      function(data, status){
+                 //          // alert("Data: " + data + "\nStatus: " + status);
+                 //      });
+
+
+                }
+
                 
             },
 

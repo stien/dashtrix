@@ -815,7 +815,6 @@ $days_percent = $days_percent<=100?$days_percent:100;
     <?php } ?>
 
 
-
 <?php require_once("common/footer.php");?>
 
 <script language="javascript">

@@ -31,9 +31,6 @@ class ico extends CI_Controller {
         if(!isset($_SESSION['kyc_lang']))
             $_SESSION['kyc_lang']="en";
          
-
-
-
         session_start();
         if(isset($_SESSION['unverified_otp']) && $_SESSION['unverified_otp']==1 && $_SESSION['blocked_otp']!=1){
             $seg = $this->uri->segment(1);
@@ -470,18 +467,6 @@ class ico extends CI_Controller {
                 }
             }
 
-
-
-
-
-
-
-
-
-            
-
-            
-
         }            
     }
     public function password_protected(){
@@ -491,9 +476,6 @@ class ico extends CI_Controller {
     public function check_password_validate(){
         $passwordvalidate = "y52^YW*z";
         $userpassword = $this->input->post('passwordprotected');
-
-
-
 
         if($userpassword != $passwordvalidate){
             header ( "Location:" . $this->config->base_url ()."password/protect");
@@ -532,10 +514,6 @@ class ico extends CI_Controller {
     // LOGIN
     public function login_page()
     {
-
-
-
-
 
         if(isset($_SESSION['JobsSessions'])){
             header ( "Location:" . $this->config->base_url ()."dashboard");
@@ -594,6 +572,8 @@ class ico extends CI_Controller {
     public function do_login_account()
     {
 
+        // $this->output->enable_profiler(TRUE);
+
         if(CAPTCHA==1){
             if(!$this->verify_captcha())
             {
@@ -609,23 +589,27 @@ class ico extends CI_Controller {
             'uEmail'    =>  $this->input->post('username')
         );
 
-       echo $this->if_old_md5($arr['uEmail'])?"cov":"";
+       // echo $this->if_old_md5($arr['uEmail'])?"cov":"";
 
         // print_r($arr);exit;
         $datashow = $this->front_model->get_query_simple('*','dev_web_user',$arr);
         
         $count = $datashow->num_rows();
-        if($count > 0 && $this->check_scrypt($datashow->result_object()[0]->uPassword, $this->input->post('password'))){
+
+        // if($count > 0 && $this->check_scrypt($datashow->result_object()[0]->uPassword, $this->input->post('password')))
+if($count > 0 && password_verify($this->input->post('password'), $datashow->result_object()[0]->uPassword))
+        {
             $row = $datashow->result_object();
+
             $_SESSION['JobsSessions']   = $row;
             $_SESSION['JobsSessions']['allowed_domain']=base_url();
+
             if($_SESSION['JobsSessions'][0]->uBan == 1){
                 unset($_SESSION['JobsSessions']);
                 $_SESSION['error'] = 'Your account has been banned from administrator, please contact administrator to reactivate your account!';
                 header ( "Location:" . $this->config->base_url ()."login");
 
             } else {
-
                 ///// two factor
                 $two_fact = $this->front_model->get_query_simple('*','dev_web_two_factor',array('id'=>1))->result_object()[0];
 
@@ -656,8 +640,6 @@ class ico extends CI_Controller {
                         }
                     }
                 }
-
-
                 $data = array(
                     'uIP'          => $_SERVER['REMOTE_ADDR'],
                     'uLoginLast'    => date("Y-m-d H:i:s"),
@@ -667,6 +649,7 @@ class ico extends CI_Controller {
                 $this->front_model->update_query('dev_web_user',$data,$condition);
                 $this->login_history();
                 header ( "Location:" . $this->config->base_url ().'dashboard');
+
             }
         }
         else
@@ -690,7 +673,8 @@ class ico extends CI_Controller {
 
         if($count>0)
         {
-            $new_password = $this->crypt_scrypt($this->input->post('password'));
+            // $new_password = $this->crypt_scrypt($this->input->post('password'));
+             $new_password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
             $this->db->where('uEmail',$user)->update('dev_web_user',array('uPassword'=>$new_password));
 
             return true;
@@ -842,7 +826,7 @@ class ico extends CI_Controller {
                             'uLname'        => $user_profile["last_name"],
                             'uEmail'        => $user_profile["email"],
                             'uUsername'     => $exp[0],
-                            'uPassword'     => $this->crypt_scrypt($rendomcode),
+                            'uPassword'     => password_hash($rendomcode, PASSWORD_DEFAULT),
                             'uImage'        => "https://graph.facebook.com/".$fbuser."/picture?type=large",
                             'uActType'      => 1,
                             'uStatus'       => 1,
@@ -933,7 +917,7 @@ class ico extends CI_Controller {
                             'uLname'        => $ex[1],
                             'uEmail'        => $content->id,
                             'uUsername'     => $content->id,
-                            'uPassword'     => $this->crypt_scrypt($rendomcode),
+                            'uPassword'     => password_hash($rendomcode, PASSWORD_DEFAULT),
                             'uImage'        => $content->profile_image_url,
                             'uActType'      => 1,
                             'uStatus'       => 1,
@@ -1106,7 +1090,7 @@ class ico extends CI_Controller {
                 'uLname'        => $user->familyName,
                 'uEmail'        => $user->email,
                 'uUsername'     => $exp[0],
-                'uPassword'     => $this->crypt_scrypt($rendomcode),
+                'uPassword'     => password_hash($rendomcode, PASSWORD_DEFAULT),
                 'uImage'        => $user->picture,
                 'uActType'      => 1,
                 'uStatus'       => 1,
@@ -1210,7 +1194,7 @@ class ico extends CI_Controller {
                         'uLname'         => $lastName,
                         'uEmail'         => $emailAddress,
                         'uUsername'       => $exp[0],
-                        'uPassword'       => $this->crypt_scrypt($rendomcode),
+                        'uPassword'       => password_hash($rendomcode, PASSWORD_DEFAULT),
                         'uImage'         => $pictureUrls,
                         'uActType'     => 1,
                         'uStatus'       => 1,
@@ -1354,12 +1338,14 @@ class ico extends CI_Controller {
                 $ref_id = $ref_id[0]->uID;
             else
                 $ref_id = 0;
+
+            $newpass = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
             $data = array(
                 'uFname'        => $this->input->post('first_name'),
                 'uLname'        => $this->input->post('last_name'),
                 'uEmail'        => $this->input->post('email'),
                 'uUsername'     => $this->input->post('username'),
-                'uPassword'     => $this->crypt_scrypt($this->input->post('password')),
+                'uPassword'     => $newpass,
 //                      'uDOB'          => $this->input->post('birth_date'),
                 'uCountry'      => $this->input->post('country'),
 //                      'uCity'         => $this->input->post('city'),
@@ -1511,7 +1497,7 @@ class ico extends CI_Controller {
                 'uLname'        => $this->input->post('last_name'),
                 'uEmail'        => $this->input->post('email'),
                 'uUsername'     => $this->input->post('username'),
-                'uPassword'     => $this->crypt_scrypt($pass),
+                'uPassword'     => password_hash($pass, PASSWORD_DEFAULT),
                 'uDOB'          => $this->input->post('birth_date'),
                 'uCountry'      => $this->input->post('country')?$this->input->post('country'):1,
                 'uCity'         => $this->input->post('city'),
@@ -1755,7 +1741,7 @@ class ico extends CI_Controller {
                 'uCompany'      => $this->input->post('name'),
                 'uEmail'        => $this->input->post('email'),
                 'uUsername'     => $this->input->post('username'),
-                'uPassword'     => $this->crypt_scrypt($this->input->post('password')),
+                'uPassword'     => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
                 //'uDOB'            => $this->input->post('birth_date'),
                 'uManager'      => $this->input->post('manager'),
                 'uPhone'        => $this->input->post('phone'),
@@ -2146,7 +2132,8 @@ class ico extends CI_Controller {
         else
         {
             $rendomcode = $this->generateRandomString();
-            $this->front_model->update_password_checl($this->input->post('email'),$this->crypt_scrypt($rendomcode));
+            $this->front_model->update_password_checl($this->input->post('email'),password_hash($rendomcode, PASSWORD_DEFAULT));
+
             // SEND EMAIL CONFIRMATION
             $edata = $this->front_model->get_emails_data('forgot-password');
             $this->load->library('email');
@@ -2677,9 +2664,9 @@ class ico extends CI_Controller {
         $config2 = $this->front_model->get_query_simple('*','dev_web_user',$arr2);
         
         $count  = $config2->num_rows();
-        if($count > 0 && $this->check_scrypt($config2->result_object()[0]->uPassword, $this->input->post('oldpass'))){
+        if($count > 0 && password_verify($this->input->post('password'), $datashow->result_object()[0]->uPassword)){
             $data = array(
-                'uPassword'     => $this->crypt_scrypt($this->input->post('password_new')),
+                'uPassword'     => password_hash($this->input->post('password_new'), PASSWORD_DEFAULT),
             );
             $condition = array('uID' => UID);
             $this->front_model->update_query('dev_web_user',$data,$condition);
