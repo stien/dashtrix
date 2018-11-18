@@ -24,7 +24,24 @@
 </head>
 
 <body>
+    <?php if(am_i('securix')){ 
 
+
+        if($this->uri->segment(1)=="thank-you-for-your-purchase")
+    { ?>
+
+        <!-- Google Tag Manager (noscript) thankyou wala-->
+
+<!-- End Google Tag Manager (noscript) -->
+
+
+    <?php }else{ ?>
+       <!-- Google Tag Manager (noscript) -->
+
+<!-- End Google Tag Manager (noscript) -->
+
+
+    <?php }} ?>
 <div class="wrapper sponsoredw">
     <div class="container sponsored on_kyc_margin_bottom_100">
 
@@ -139,9 +156,6 @@
                 <?php 
 
                 $bg_nav_toggle = $this->front_model->get_query_simple('*','dev_web_config',array('cID'=>1))->result_object()[0];
-
-
-    
       
         if(strpos($bg_nav_toggle->logo_bg,'#') !== false)
             $color_bgnav_toggle = $bg_nav_toggle->logo_bg;
@@ -170,33 +184,52 @@
                 <ul class="navigation-menu">
 
                 	<li <?php if($this->uri->segment(1) == "dashboard"){echo 'class="active"';}?>><a href="<?php echo base_url();?>dashboard">
-                    <?php if(ACTYPE==1){ ?>
-                        <img src="<?php echo base_url();?>resources/frontend/images/dashboard-icon.png" alt="" width="24">
+                    
+                    <?php if(ACTYPE==2){ ?> 
+                        <div class="user-icon dash-con">
                     <?php } ?>
-                	Dashboard</a></li>
+
+                    <img src="<?php echo base_url();?>resources/frontend/images/dashboard-icon.png" alt="" width="24">
+  
+                    <?php if(ACTYPE==2){ ?> 
+                        </div>
+                    <?php } ?>
+                    Dashboard
+                </a>
+            </li>
 				   <?php if(ACTYPE == "2"){?>
                     <?php if($current_logged_user && json_decode($current_logged_user->whitelist_settings)->ability==1 || $current_logged_user->whitelist==0){ ?>
 					<li <?php if($this->uri->segment(1) == "buy-tokens"){echo 'class="active"';}?>><a href="<?php echo base_url().'buy-tokens'; ?>">
-						Buy Tokens</a></li>
+						
+                        <div class="user-icon">
+                            <i class="md md-account-balance-wallet"></i>
+                        </div> Buy Tokens</a>
+                       
+                    </li>
 
                     <?php } ?>
 
 
                         <li <?php if($this->uri->segment(1) == "tranasctions"){echo 'class="active"';}?>><a href="<?php echo base_url().'tranasctions'; ?>">
-                       Transactions</a></li>
+                       
+                       <div class="user-icon">
+                            <i class="md md-shop-two"></i>
+                        </div> Transactions</a></li>
 
 
                         <?php if($web_settings->hide_bounties==1){ ?>
                     <li class="dropdown navbar-c-items  <?php if($this->uri->segment(1) == "bounties"){echo 'active';}?>">
                         <a href="javascript:;" class="dropdown-toggle waves-effect waves-light profile" data-toggle="dropdown" aria-expanded="true">
-                           Bounties
+                           <div class="user-icon">
+                            <i class="md md-track-changes"></i>
+                        </div> Bounties
                         </a>
                         <ul class="dropdown-menu">
 
                                 <li><a href="<?php echo base_url().'bounties'; ?>"><i class="md md-content-copy  m-r-10"></i>Bounties</a></li>
 
                                 <li class="divider"></li>
-                                <li><a href="<?php echo base_url().'user-bounty-submissions' ?>"><i class="md md-content-copy  m-r-10"></i> My Submissions</a></li>
+                                <li><a href="<?php echo base_url().'user-bounty-submissions' ?>"><i class="md md-share  m-r-10"></i> My Submissions</a></li>
 
 
                             </ul>
@@ -210,7 +243,11 @@
 
                     <?php if(ACTYPE==2){ ?>
 
-                        <li <?php if($this->uri->segment(1) == "my-referral-url"){echo 'class="active"';}?>><a href="<?php echo base_url();?>my-referral-url">My Referral URL</a></li>
+                        <li <?php if($this->uri->segment(1) == "my-referral-url"){echo 'class="active"';}?>><a href="<?php echo base_url();?>my-referral-url">
+
+                        <div class="user-icon">
+                            <i class="md md-share"></i>
+                        </div> My Referral URL</a></li>
            
 
     <?php } ?>
@@ -431,10 +468,7 @@
 
 				<!-- 			</ul>
                     </li> -->
-                    <?php/* } */ ?>
-                   
-
-
+                    <?php/* } */ ?>         
 
                     <li class="navbar-c-items">
                         <a href="<?php echo base_url().'admin/support' ?>" class="waves-effect waves-light profile" aria-expanded="true">
@@ -461,11 +495,10 @@
             </div> -->
             
 </header>
+
 <!-- End Navigation Bar-->
 
-
     <div id="msg-container-master"></div>
-
 
     <?php
   if(ACTYPE==1){
@@ -476,12 +509,6 @@
          $count_addresss = $this->front_model->get_query_simple('*','dev_web_wallet_addresses',array('option_id'=>$walled->id,'used'=>0))->result_object();
 
          if($walled->warning_before>count($count_addresss)){
-
-
-
-    
-
-
      ?>
 
 

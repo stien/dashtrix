@@ -269,7 +269,7 @@ display: block;
     padding-left: 25px;
     padding-right: 35px;
     font-size: 13px;
-    border-bottom: 1px solid #5a5a5a;
+    border-bottom: 1px solid #5a5a5a61;
 }
 #topnav .navigation-menu > li > a:hover {
   color: #243b68;

@@ -101,7 +101,9 @@
                             else
                             {
                                
-                                echo '$'.custom_number_format($sold_out_tokens/$total_days,decimals_());
+                                // echo '$'.custom_number_format($sold_out_tokens/$total_days,decimals_());
+                                setlocale(LC_MONETARY,"en_US");
+                                echo '$'.number_format($sold_out_tokens/$total_days,decimals_());
                             }
                             
 

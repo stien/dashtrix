@@ -1,18 +1,29 @@
 <?php include("common/header.php");?>
 <div class="wrapper-page widht-800">
     <div class="card-box">
+        
+         <DIV class="signupformd-title">TOKEN PRICE TEMPLATES - ATTACH CAMPAIGN</div>
+
         <div class="panel-body">
+
+                                <ul class="nav nav-wizard token-pricing">
+                <li><a href="#"  data-toggle="tooltip" data-placement="top" title="Set token pricing type"><SPAN>1</span> TOKEN TYPE</a></li>
+                <li><a href="#"  data-toggle="tooltip" data-placement="top" title="Set token bonus type"><SPAN>2</span> BONUS TYPE</a></li>
+                <li><a href="#"  data-toggle="tooltip" data-placement="top" title="Define bonus levels"><SPAN>3</span> SET BONUS</a></li>
+                    <li class="active"><a href="#"  data-toggle="tooltip" data-placement="top" title="Attach to a campaign"><SPAN>4</span> ATTACH TO CAMPAIGN</a></li>
+              </ul>
+
             <div class="row">
                 <div class="col-lg-12">
                    <?php 
-						$title = "TOKEN PRICE TEMPLATES";
+					//	$title = "TOKEN PRICE TEMPLATES";
 
                          $campaigns = $this->front_model->get_query_simple('*','dev_web_ico_settings',array('active'=>1))->result_object();
 
 					?>
                    
                     <div class="tab-content">
-                      <span class="signupformd"><?php echo $title;?></span>
+                      <!-- <span class="signupformd"><?php echo $title;?></span> -->
                         <div class="tab-pane active" id="personal">
 
                             <?php if(empty($campaigns)){ ?>
@@ -212,23 +223,23 @@
                                     </div>
 
                                     <div class="col-md-12">
-                                        <label>
-                                            <input type="radio" name="end_type" value="1" required>
-                                            End date 
+                                        
+                                            <input type="radio" id="end_type1" name="end_type" value="1" required>
+                                          <label for="end_type1">End date 
                                         </label>
 
                                     </div>
                                     <div class="col-md-12">
-                                        <label>
-                                            <input type="radio" name="end_type" value="2" required>
-                                            Token Cap
+                                        
+                                            <input type="radio" id="end_type2" name="end_type" value="2" required>
+                                            <label for="end_type2">Token Cap
                                         </label>
 
                                     </div>
                                      <div class="col-md-12">
-                                        <label>
-                                            <input type="radio" name="end_type" value="3" required>
-                                            Whichever happens first
+                                       
+                                            <input type="radio" id="end_type3" name="end_type" value="3" required>
+                                         <label for="end_type3">Whichever happens first
                                         </label>
 
                                     </div>

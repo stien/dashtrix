@@ -32,12 +32,17 @@ $ico_settings_ = $this->db->where('active',1)->get('dev_web_ico_settings')->resu
                             echo $web_settings->configTitle. ' - '.$current_otken_price->tokenBonus.'%'. ' Active Bonus';
 
                         } else {
-                            echo $ico_settings_[0]->title . ' - Sale';
-                        } ?></h2>
-                        <span class="text-center easy clr_grey">Price 
 
-                (<?php
+                            echo $ico_settings_[0]->title . ' - Sale';
+
+                        } ?></h2>
+
+                        <div class="price-callout">
+                            <span class="text-center price-dash-special">Price</span> 
+
+                <?php
                                                 $ico_settings = $this->db->where('active',1)->get('dev_web_ico_settings')->result_object();
+
                                                 if(!empty($ico_settings))
                                                 {
                                                     $token_name = $ico_settings[0]->token_symbol;
@@ -50,39 +55,44 @@ $ico_settings_ = $this->db->where('active',1)->get('dev_web_ico_settings')->resu
                                                   $this->data['active_token']=$this->front_model->get_query_simple('*','dev_web_token_pricing',array('status'=>1))->result_object()[0];
 
                                                 $price_should_be=$this->data['active_token']->tokenPrice;
+
                     if($this->data['active_token']->currency_type=="USD")
                     echo 1 .' '. $token_name . ' = '. $price_should_be . ' USD';
                     else
                     echo 1 .' '. $token_name . ' = '. $price_should_be * 100 . '% of current '.$this->data['active_token']->currency_type.' price';
                 //.$this->data['active_token']->currency_type
 
+                echo '</div>';
 
+                if ($current_otken_price->tokenBonus>0){
+                echo '<div class="price-callout"><span class="text-center price-dash-special"> Active Bonus</span>' .$current_otken_price->tokenBonus.'%</div>';
+                }
 
+                                             ?>
 
-                                             ?>)
+                         <!-- </div> -->
+        </div>
+
+        <div class="col-md-12 col-sm-12 nopad m-t-15">
 
               <?php 
                                 //echo '$'.number_format($current_otken_price->tokenPrice,decimals_());
                             //echo $token_symbol->token_symbol?$token_symbol->token_symbol:'Token'; 
 
+             $current_active_camp = $this->front_model->get_query_simple('*','dev_web_ico_settings',array('id'=>$current_otken_price->ico_camp))->result_object()[0];
+
+                
+            $now = time(); // or your date as well
+            // echo date("Y-m-d H:i:s",time());
+
+            $_collected_date = date("Y-m-d",strtotime($current_otken_price->tokenDateEnds)). ' '. $current_otken_price->end_time;
 
 
- $current_active_camp = $this->front_model->get_query_simple('*','dev_web_ico_settings',array('id'=>$current_otken_price->ico_camp))->result_object()[0];
+            $your_date = strtotime(date("Y-m-d H:i:s",strtotime($_collected_date)));
+            $datediff_for_fooooter = $your_date - $now;
 
-    
-$now = time(); // or your date as well
-// echo date("Y-m-d H:i:s",time());
+                             ?>
 
-$_collected_date = date("Y-m-d",strtotime($current_otken_price->tokenDateEnds)). ' '. $current_otken_price->end_time;
-
-
-$your_date = strtotime(date("Y-m-d H:i:s",strtotime($_collected_date)));
-$datediff_for_fooooter = $your_date - $now;
-
-
-                             ?></span>
-        </div>
-        <div class="col-md-12 col-sm-12 nopad m-t-15">
             <div class="col-md-3">
                 <div class="time_box easy">
                     <div class="time_box_main_text  bold-text" id="d_days">
@@ -215,7 +225,7 @@ $datediff_for_fooooter = $your_date - $now;
            </div>
             
            <div class="col-md-12 text-center m-t-20 clr_grey">
-                Pre-Sale end on <?php echo date("F d, Y",strtotime($current_otken_price->tokenDateEnds)); ?>.
+                Pre-Sale ends on <?php echo date("F d, Y",strtotime($current_otken_price->tokenDateEnds)); ?>.
            </div>
 
        <?php }else{ ?>

@@ -15,7 +15,7 @@
         <div class="col-md-8">
             
 <div class="card-box widget-box-1">
-                <h4 class="header-title m-t-0 m-b-30 text-center">Launch Stack Platform Dashboard Support Base</h4>
+                <h4 class="header-title m-t-0 m-b-30 text-center">Launch Stack Support Base</h4>
 
 
 
@@ -61,7 +61,7 @@ available features.</p>
     If you have additional questions or need further help, please contact our support team at 
 </p> <br> 
 <p class="text-center">
-    <a href="mailto:support@LaunchStack.co">support@LaunchStack.co</a>
+    <a href="mailto:support@LaunchStack.co">support@launchstack.co</a>
 </p>
  <br> 
  <p class="text-center">

@@ -164,46 +164,50 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Minimum Investment Amount (USD)</label>
+                                            <label class="" >Minimum Investment Amount (USD)</label>
                                             <input name="min_invest" type="number" step="0.1" class="form-control" value="<?php echo $token->min_invest; ?>">
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Maximum Investment Amount (USD)</label>
+                                            <label class="" >Maximum Investment Amount (USD)</label>
                                             <input name="max_invest" type="number" step="0.1" class="form-control" value="<?php echo $token->max_invest; ?>">
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Token Cap <sup>*</sup></label>
+                                            <label class="" >Token Cap <sup>*</sup></label>
                                             <input name="address" type="text" class="form-control" value="<?php echo $token->tokenCap; ?>" required>
+                                        
                                         </div>
                                     </div>
 
                                     <div class="col-md-12">
-                                        <label>How will your pricing round end?</label>
+                                        <label >How will your pricing round end?</label>
                                     </div>
 
                                     <div class="col-md-12">
-                                        <label>
-                                            <input type="radio" name="end_type" value="1" required <?php if($token->end_type=="1") echo "checked"; ?>>
+                                       
+                                            <input type="radio" id="end_type1" name="end_type" value="1" required <?php if($token->end_type=="1") echo "checked"; ?>>
+                                        <label  for="end_type1"> 
                                             End date 
                                         </label>
 
                                     </div>
                                     <div class="col-md-12">
-                                        <label>
-                                            <input type="radio" name="end_type" value="2" required <?php if($token->end_type=="2") echo "checked"; ?>>
+                                            <input type="radio" id="end_type2" name="end_type" value="2" required <?php if($token->end_type=="2") echo "checked"; ?>>
+                                        
+                                        <label for="end_type2" >
                                             Token Cap
                                         </label>
 
                                     </div>
                                      <div class="col-md-12">
-                                        <label>
-                                            <input type="radio" name="end_type" value="3" required <?php if($token->end_type=="3") echo "checked"; ?>>
+                                        
+                                            <input type="radio" id="end_type3" name="end_type" value="3" required <?php if($token->end_type=="3") echo "checked"; ?>>
+                                       <label for="end_type3" > 
                                             Whichever happens first
                                         </label>
 

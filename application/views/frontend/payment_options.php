@@ -51,8 +51,11 @@
                         <?php } ?>
                         </span>
 					<p><?php echo $option->name; ?></p>
-                    <p>
+                    <p>         
+                        <label class="containr">
                         <input onclick="openModal(<?php echo $option->id; ?>,this);"   <?php echo $option->active==1?"checked":""; ?> type="checkbox" name="isActive<?php echo $option->id; ?>" value="<?php echo $option->active; ?>">
+                          <span class="checkmark"></span>
+                        </label>
 
                         <button  onclick="openModal2(<?php echo $option->id; ?>);" class="btn btn-default btn-block btn-sm btn-smart" type="button">
                             View Details
@@ -110,10 +113,11 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Activate Countdown Clock: <sup>*</sup></label>
+                                            <label class="containr">Activate Countdown Clock: <sup>*</sup>
                                             <input name="active_time" type="checkbox" <?php echo $option->time_active==1?"checked":""; ?> value="1" onclick="show_timer(this,<?php echo $option->id; ?>)">
+                                            <span class="checkmark"></span>
 
-
+                                            </label>
                                         </div>
                                     </div>
 
@@ -353,8 +357,9 @@
 
                                            <div style="height: 100px; overflow-y: scroll; float: left; width: 100%;">
                                                 <?php foreach($countries as $country){ ?>
-                                                    <label style="margin-right: 10px; margin-bottom: 5px;">
+                                                    <label class="containr" style="margin-right: 10px; margin-bottom: 5px;">
                                                     <input class="allowed_country_" name="allowed_country[]" type="checkbox" <?php if(in_array($country->id,explode(',',$option->allowed_country))) echo "checked"; ?> value="<?php echo $country->id; ?>"><?php echo $country->nicename; ?>
+                                                    <span class="checkmark"></span>
                                                     </label>
                                                 <?php } ?>
                                            </div>

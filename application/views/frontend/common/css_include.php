@@ -13,6 +13,7 @@
 <link href="<?php echo base_url();?>resources/frontend/css/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo base_url();?>resources/frontend/css/jquery.timepicker.min.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo base_url();?>resources/frontend/css/bootstrap-toggle.min.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo base_url();?>resources/frontend/css/bootstrap-nav-wizard.css" rel="stylesheet" type="text/css" />
 
 <?php //if($this->uri->segment(1) == "dashboard"){?>
 <link href="<?php echo base_url();?>resources/frontend/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
@@ -572,6 +573,7 @@ table.dataTable td.focus {
 	
 
 </style>
+<link href="<?php echo base_url();?>resources/frontend/css/overrides.css?time=<?php echo time();?>" rel="stylesheet" type="text/css"/>
 
 
 

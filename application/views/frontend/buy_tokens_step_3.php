@@ -25,12 +25,12 @@
             <?php } ?>
 
            
-            <div class="col-md-4"></div>
-            <div class="col-md-4">
+            <!-- <div class="col-md-2"></div> -->
+            <div class="col-md-6 confirmation_float">
 
                 <div class="box-buy-tokens">
                     <div class="box-buy-tokens-upper">
-                        <i class=" fa <?php echo $option->icon; ?>"></i>
+                        <DIV class="con-title">Confirmation</div>
                     </div>
                     <div class="box-buy-tokens-lower" style="width: 100%;">
 
@@ -45,6 +45,14 @@
                         </div>
                     </div>
 
+                    <div class="col-md-12" style="margin-top: 10px;">
+                        <div class="form-group copy_parent">
+                            <label style="font-weight: bold !important;">Number of Tokens:</label>
+                            <input id="number_of_tokens" type="text" disabled value="" class="form-control">
+                            
+                        </div>
+                    </div>
+<!--<img class="con-icon" src="<?php echo base_url().'resources/frontend/images/'.$option->icon; ?>">-->  
                     <?php /* if($option->type!=2){ ?> ($<?php echo $__usd_required; ?>)<?php }  */ ?>
                     
 
@@ -258,7 +266,7 @@
               <?php } ?>
 
 
-                  <div class="col-md-12" style="margin-top: 10px;">
+                <!--   <div class="col-md-12" style="margin-top: 10px;">
 
                         <button type="button" onclick="javascript:showQRCode();" class="show_qr_code"><i class="fa fa-qrcode"></i> Show QR Code</button>
                         <div id="overlay" onclick="off()">
@@ -266,10 +274,12 @@
                                 <img width="200" src="<?php echo base_url().'resources/uploads/qr_codes/'.$trans_id.'.gif'; ?>" title="<?php echo $trans_id; ?>" />
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
 
                   <div class="col-md-12" style="margin-top: 10px;">
+
+                    <img width="200" src="<?php echo base_url().'resources/uploads/qr_codes/'.$trans_id.'.gif'; ?>" title="<?php echo $trans_id; ?>" />
 
                     <h2 >Enter Confirmation</h2>
                      </div>
@@ -317,19 +327,10 @@
                                                 </button>
                                             </a>
                                          </div>
-                                    </div>
-                                  
-                                    
-
-                                 
+                                    </div>                 
                                
                         </form>
                     </div>
-
-
-
-
-
 
               <?php } ?>
 
@@ -341,13 +342,10 @@
             </div>
             <div class="col-md-4">
 
-
-
-
         </div>
 
-    
 <?php require_once("common/footer.php");?>
+
 <script language="javascript">
 <?php if(ACTYPE == "1"){?>
 function btnstatusupdate(val,id){
@@ -459,4 +457,8 @@ function off() {
     document.getElementById("overlay").style.display = "none";
 }
 
+$(function() {
+
+  $('#number_of_tokens').val(localStorage.getItem('currentTokenByAmount'))
+});
 </script>

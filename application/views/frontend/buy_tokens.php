@@ -14,7 +14,7 @@
 
     			<div class="box-buy-tokens-old">
     			<form method="post" action="">
-    				<h3 class="text-center">Select Payment Method</h3>
+    				<h3 class="text-center">Select Payment Methodd</h3>
     				
 
             <?php

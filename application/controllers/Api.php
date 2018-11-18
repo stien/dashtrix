@@ -279,14 +279,14 @@ class Api extends CI_Controller{
 		// $_SERVER['REMOTE_ADDR']!="110.36.183.128" ||
 		error_reporting(-1);
 		if($_SERVER['REMOTE_ADDR']!="110.36.183.128" || $auth!="P145DeDevelopers".date("d").date("h")){
-			echo "Not Allowed 1`";
+			// echo "Not Allowed 1`";
 			exit;
 		}
 
 
 		if($_POST['auth2']!="f780511043409709097de32044aff04b")
 		{
-			echo "Not Allowed";
+			// echo "Not Allowed";
 			exit;
 		}
 
@@ -429,7 +429,7 @@ class Api extends CI_Controller{
 	public function shift_users()
 	{
 		if($_REQUEST['key']!="P145DeDevelopers"){
-			echo "not allowed";
+			// echo "not allowed";
 			exit;
 		}
 

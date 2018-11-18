@@ -1,7 +1,7 @@
     <!-- Footer -->
     <div class="col-md-12">
                  <?php if(!$pdf_view && !am_i('lib')){ ?>
-                <p style="font-size: 10px; color: #ffffff; opacity:0;" class="flt_right clr_white">Developed By <a title="Logo Design, Website Development & Design Company - DeDevelopers" class="hover_none" href="http://www.dedevelopers.com/" target="_blank">DeDevelopers</a></p>
+                <p style="font-size: 10px; color: #ffffff; opacity:0;" class="flt_right clr_white">Developed By Stien & Cam</p>
             <?php } ?>
             </div>
 <footer class="footer text-right">
@@ -108,7 +108,8 @@
            
            
             
-             <a style="color: #5d5d5d;" href="<?php echo base_url().'terms'; ?>">Terms & Conditions</a> | 
+             <!-- <a style="color: #5d5d5d;" href="<?php echo base_url().'terms'; ?>">Terms & Conditions</a> -->
+              | 
              <a style="color: #5d5d5d;" href="<?php echo base_url().'privacy-policy'; ?>">Privacy Policy</a>
           
 

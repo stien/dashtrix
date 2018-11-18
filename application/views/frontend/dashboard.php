@@ -1,10 +1,4 @@
-<?php 
-require_once("common/header.php");
-// error_reporting(E_ALL);
-// show_error($message, $status_code, $heading = 'An Error Was Encountered');
-// echo $message;
-// echo $status_code;
-?>
+<?php require_once("common/header.php");?>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url().'resources/frontend/css/circle.css'; ?>">
 
     <?php if(isset($_SESSION['thankyou'])){?>
@@ -59,7 +53,7 @@ require_once("common/header.php");
 
     <div class="row">
 
-         <div class="col-sm-12 m-b-30">
+         <div class="col-sm-12 ">
 
             <div class="button-list pull-right m-t-15">   
 <a class="btn btn-default" href="<?php echo base_url();?>admin/export/tranasctions/csv"><i class="fa fa-download"></i> Export CSV</a> 
@@ -343,7 +337,7 @@ require_once("common/header.php");
 
     	<div class="row">
 
-         <div class="col-sm-12 m-b-30">
+         <div class="col-sm-12 ">
 
         	<h4 class="page-title">WELCOME TO ADMIN DASHBOARD</h4>
 
@@ -356,17 +350,17 @@ require_once("common/header.php");
             <div class="col-md-12">
                 <div class="col-md-12">
 
-            <div class="col-sm-3 m-b-30">
+            <div class="col-sm-3 ">
 
                 <div class="card-box widget-box-1 boxdisplay sales">
 
-                    <span class="d-flip d-flip-all-time">$<?php echo custom_number_format($this->front_model->total_sales('all-time'),decimals_());?></span>
-                    <span class="d-flip d-flip-today">$<?php echo custom_number_format($this->front_model->total_sales(),decimals_());?></span>
-                    <span class="d-flip d-flip-week">$<?php echo custom_number_format($this->front_model->total_sales('week'),decimals_());?></span>
-                    <span class="d-flip d-flip-month">$<?php echo custom_number_format($this->front_model->total_sales('month'),decimals_());?></span>
-                    
-                    
+                    <?php  setlocale(LC_MONETARY,"en_US"); ?>
 
+                    <span class="d-flip d-flip-all-time"><?php echo '$'.number_format($this->front_model->total_sales('all-time'),decimals_());?></span>
+                    <span class="d-flip d-flip-today"><?php echo '$'.number_format($this->front_model->total_sales(),decimals_());?></span>
+                    <span class="d-flip d-flip-week"><?php echo '$'.number_format($this->front_model->total_sales('week'),decimals_());?></span>
+                    <span class="d-flip d-flip-month"><?php echo '$'.number_format($this->front_model->total_sales('month'),decimals_());?></span>
+                    
                     <p>Total Sales</p>
                     <span class="flip-control">
                         <a class="flip-all-time" href="javascript:dFlip('all-time','sales');">All</a> | 
@@ -380,7 +374,7 @@ require_once("common/header.php");
 
             </div>
 
-			<div class="col-sm-3 m-b-30">
+			<div class="col-sm-3 ">
 
 				<div class="card-box widget-box-1 boxdisplay token">
                     <span class="d-flip d-flip-all-time"><?php echo custom_number_format($this->front_model->totaltokensolds('all-time'),decimals_());?></span>
@@ -407,7 +401,7 @@ require_once("common/header.php");
 
    			
             <?php /* ?>
-   			<div class="col-sm-4 m-b-30">
+   			<div class="col-sm-4 ">
 
 				<div class="card-box widget-box-1 boxdisplay raised">
 
@@ -431,7 +425,7 @@ require_once("common/header.php");
             <?php */ ?>
   			
 
-  			<div class="col-sm-3 m-b-30">
+  			<div class="col-sm-3 ">
 
 				<div class="card-box widget-box-1 boxdisplay trans">
 
@@ -577,7 +571,7 @@ $days_percent = $days_percent<=100?$days_percent:100;
  ?>
             
 
-            <div class="col-sm-6 m-b-30">
+            <div class="col-sm-6 ">
 
                     <div class="cm_miles easy" >CAMPAIGN MILESTONES</div>
                     
@@ -621,9 +615,9 @@ $days_percent = $days_percent<=100?$days_percent:100;
 
             </div>
 
-  			<div class="col-sm-3 m-b-30">
+  			<div class="col-sm-3 ">
 
-				<div class="card-box widget-box-1 boxdisplay users">
+				<div class="card-box widget-box-1 boxdisplay">
 
 					<span><?php echo number_format($this->front_model->totalusers());?></span>
 
@@ -633,7 +627,7 @@ $days_percent = $days_percent<=100?$days_percent:100;
 
 			</div>	
 
-            <div class="col-sm-3 m-b-30">
+            <div class="col-sm-3 ">
 
                 <div class="card-box widget-box-1 boxdisplay visits">
 
@@ -729,7 +723,7 @@ $days_percent = $days_percent<=100?$days_percent:100;
 
             <div class="row">	
 
-            <div class="col-sm-6 m-b-30 under992left">
+            <div class="col-sm-3  under992left first-bottom-left">
                 <div class="card-box widget-box-1 easy">
                     <div class="col-md-12">
                         <div class="av_title">AVERAGE DAILY PERFORMANCE</div>
@@ -774,10 +768,10 @@ $days_percent = $days_percent<=100?$days_percent:100;
                 </div>
             </div>
 
-             <div class="col-sm-6 m-b-30 under992left">
+             <div class="col-sm-3  under992left">
                 <div class="card-box widget-box-1 easy">
                     <div class="col-md-12">
-                        <div class="av_title">CAMPAIGN METRICS</div>
+                        <div class="av_title">CURRENT CAMPAIGN<BR>METRICS</div>
                     </div>
                     <div class="col-md-12 pd-10 f-20">
                         <div class="col-md-4 text-right  m-t-10">
@@ -813,6 +807,7 @@ $days_percent = $days_percent<=100?$days_percent:100;
     	</div>
 
     <?php } ?>
+
 
 
 <?php require_once("common/footer.php");?>

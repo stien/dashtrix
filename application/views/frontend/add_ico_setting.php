@@ -2,9 +2,11 @@
 
 
 
-<div class="wrapper-page widht-800">
+<div class="wrapper-page widht-800 add-new-ico">
 
     <div class="card-box">
+
+    <div class="signupformd-title">ADD NEW ICO CAMPAIGN - ADMIN</div>
 
         <div class="panel-body">
 
@@ -12,13 +14,12 @@
 
                 <div class="col-lg-12">
 
-                   <?php $title = "ADD NEW ICO SETTING - ADMIN"; ?>
 
                    
 
                     <div class="tab-content">
 
-                      <span class="signupformd"><?php echo $title;?></span>
+                      <!-- <span class="signupformd"><?php echo $title;?></span> -->
 
                         <div class="tab-pane active" id="personal">
 
@@ -260,7 +261,7 @@
 
                                             <button class="btn btn-default btn-block btn-lg" type="submit">
 
-                                               Add ICO Setting
+                                               ADD ICO CAMPAIGN
 
                                             </button>
 

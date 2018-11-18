@@ -1757,9 +1757,7 @@ input:-webkit-autofill:active {
 .boxdisplay.trans {
     background: #73A0B3;
 }
-.visits, .users {
-    border-left: 2px solid #2c3b43;
-}
+
 .bgdark { border: 1px solid #f0f0f0; background: #f0f0f0; padding: 10px; border-radius: 3px;}
 .usrinfodip { font-size: 11px;}
 .usrinfodip p { margin-bottom: 10px !important; }
@@ -1827,19 +1825,19 @@ input:-webkit-autofill:active {
     background: #fff;
     float: left;
     width: 100%;
-   
-    border:1px solid grey;
+    border: 1px solid #d4d4d4;
+    box-shadow: 0 0 2px 2px #e8e8e8;
     border-radius: 5px;
    margin-bottom: 50px;
 
 }
 .box-buy-tokens-upper{
-  background: #243B68;
-   padding: 20px;
-   float: left;
-   width: 100%;
-   color:#fff;
-   font-size: 20px;
+background: #418BBF;
+    padding: 10px;
+    float: left;
+    width: 100%;
+    color: #fff;
+    font-size: 20px;
   
 }
 .box-buy-tokens-lower{
@@ -2264,7 +2262,9 @@ ul.navigation-menu {
     left: 0px;
     top: 60px;
     bottom: 0px;
+    min-width: 183px;
         background: linear-gradient(to bottom, #28343b 0%,#71767c 99%,#828c95 100%);
+        background: linear-gradient(to bottom, #2F3080 0%,#1c2025 99%,#21262b 100%); /*vtrade branding */
 }
 ul.navigation-menu a:first-child {
     padding-left: 20px !important;
@@ -2332,9 +2332,9 @@ ul.navigation-menu a:first-child {
 }
 
 .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
-    color: #ffffff;
+    color: #262626;
     text-decoration: none;
-    background-color: #a5a5a5b3;
+    background-color: #f5f5f5b3;
 }
 .btn-group ul.dropdown-menu {
     left: -1px;

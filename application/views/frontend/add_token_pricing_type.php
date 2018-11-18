@@ -1,17 +1,23 @@
 <?php include("common/header.php");?>
 <div class="wrapper-page widht-800">
+
     <div class="card-box">
+
+                      <DIV class="signupformd-title">TOKEN PRICE TEMPLATES - SET ROUND TYPE</div>
+
         <div class="panel-body">
+
+                <ul class="nav nav-wizard token-pricing">
+                <li class="active"><a href="#"  data-toggle="tooltip" data-placement="top" title="Set token pricing type"><SPAN>1</span> TOKEN TYPE</a></li>
+                <li><a href="#"  data-toggle="tooltip" data-placement="top" title="Set token bonus type"><SPAN>2</span> BONUS TYPE</a></li>
+                <li><a href="#"  data-toggle="tooltip" data-placement="top" title="Define bonus levels"><SPAN>3</span> SET BONUS</a></li>
+                    <li><a href="#"  data-toggle="tooltip" data-placement="top" title="Attach to a campaign"><SPAN>4</span> ATTACH TO CAMPAIGN</a></li>
+              </ul>
+
             <div class="row">
                 <div class="col-lg-12">
-                   <?php 
-						$title = "TOKEN PRICE TEMPLATES";
-
-                        
-					?>
-                   
+            
                     <div class="tab-content">
-                      <span class="signupformd"><?php echo $title;?></span>
                         <div class="tab-pane active" id="personal">
 
                           
@@ -27,9 +33,8 @@
                                              
 
                                             
-                                            <h3 class="text-center">Which type of pricing round would you like to create?</h3>
+                                            <h3 class="text-center">Set the TYPE of pricing round</h3>
                                                     
-
 
                                              
                                             <div class="col-md-6 m-b-30 pointer" onclick="href('individual',this)">
@@ -42,12 +47,14 @@
                                                 </div>  
                                             </div>
 
-                                      <div class="col-md-6 m-b-30 pointer" onclick="href('multiple',this)">
-                                        <div class="card-box widget-box-1 boxdisplay"  style="min-height: 290px;">
+                                      <!-- <div class="col-md-6 m-b-30 pointer" onclick="href('multiple',this)" > -->
+                                        <div class="col-md-6 m-b-30 pointer" >
+                                        <div class="card-box widget-box-1 boxdisplay"  style="min-height: 290px;  opacity: .3; cursor: not-allowed;">
                                             <span>
                                                 <h2>Multiple</h2>
                                             </span>
-                                            <p>A series of pricing templates which activate automatically in the order you specify, when reaching the end date or token cap. (you will need to create a minimum of 2 pricing templates if selecting this option)</p>
+                                           <!--  <p>A series of pricing templates which activate automatically in the order you specify, when reaching the end date or token cap. (you will need to create a minimum of 2 pricing templates if selecting this option)</p> -->
+                                            <p>A series of pricing templates which activate automatically in the order you specify, at the end date or token cap. COMING SOON...</p>
                                         </div>  
                                       </div>
                                   </div>
@@ -110,6 +117,10 @@
            	//endDate: '-0d'
         });
     });
+
+    $(function () {
+          $('[data-toggle="tooltip"]').tooltip()
+        })
 
 function href(loc,that)
 {

@@ -1,17 +1,22 @@
 <?php include("common/header.php");?>
 <div class="wrapper-page widht-800">
     <div class="card-box">
+           <DIV class="signupformd-title">TOKEN PRICE TEMPLATES - SET PRICING ROUND TYPE</div>
+
         <div class="panel-body">
+
+                               <ul class="nav nav-wizard token-pricing">
+                <li><a href="#"  data-toggle="tooltip" data-placement="top" title="Set token pricing type"><SPAN>1</span> TOKEN TYPE</a></li>
+                <li class="active"><a href="#"  data-toggle="tooltip" data-placement="top" title="Set token bonus type"><SPAN>2</span> BONUS TYPE</a></li>
+                <li><a href="#"  data-toggle="tooltip" data-placement="top" title="Define bonus levels"><SPAN>3</span> SET BONUS</a></li>
+                    <li><a href="#"  data-toggle="tooltip" data-placement="top" title="Attach to a campaign"><SPAN>4</span> ATTACH TO CAMPAIGN</a></li>
+              </ul>
+              
             <div class="row">
                 <div class="col-lg-12">
-                   <?php 
-                        $title = "TOKEN PRICE TEMPLATES";
-
-                        
-                    ?>
-                   
+                  
                     <div class="tab-content">
-                      <span class="signupformd"><?php echo $title;?></span>
+                      <!-- <span class="signupformd"><?php echo $title;?></span> -->
                         <div class="tab-pane active" id="personal">
 
                           
@@ -27,13 +32,13 @@
                                              
 
                                             
-                                            <h3 class="text-center">Which type of pricing round would you like to create?</h3>
+                                            <h3 class="text-center">Set the type of bonus</h3>
                                                     
 
 
                                              
                                             <div class="col-md-6 m-b-30 pointer" onclick="href('1',this)">
-                                                <div class="card-box widget-box-1 boxdisplay" style="min-height: 170px;">
+                                                <div class="card-box widget-box-1 boxdisplay">
                                             <span>
                                                 
                                                 <h2>Standard</h2>
@@ -43,15 +48,15 @@
                                             </div>
 
                                       <div class="col-md-6 m-b-30 pointer" onclick="href('3',this)">
-                                        <div class="card-box widget-box-1 boxdisplay"  style="min-height: 170px;">
+                                        <div class="card-box widget-box-1 boxdisplay">
                                             <span>
-                                                <h2>Escalating Bonus</h2>
+                                                <h2>Escalating</h2>
                                             </span>
                                            
                                         </div>  
                                       </div>
                                       <div class="col-md-6 m-b-30 pointer" onclick="href('2',this)">
-                                        <div class="card-box widget-box-1 boxdisplay"  style="min-height: 170px;">
+                                        <div class="card-box widget-box-1 boxdisplay">
                                             <span>
                                                 <h2>No Bonus</h2>
                                             </span>
@@ -80,7 +85,7 @@
 
                                     <div class="col-md-3 right m-t-40">
                                          <div class="form-group">
-                                            <a href="<?php echo base_url().'admin/add/token/pricing'; ?>">
+                                            <a href="<?php echo base_url().'admin/add/token/pricing/type'; ?>">
                                                 <button class="btn btn-danger btn-block btn-sm "  type="button">
                                                       Go Back
                                                 </button>

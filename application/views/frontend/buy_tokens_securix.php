@@ -9,18 +9,32 @@
     	</div>
     	<div class="row">
 
-    		<div class="col-md-2"></div>
-    		<div class="col-md-10">
+    		<!-- <div class="col-md-2"></div> -->
+    		<div class="col-md-11">
+    <div class="box-buy-tokens-old">
 
-    			<div class="box-buy-tokens-old">
-    			<form method="post" action="">
-    				<h3 class="text-center">
-              <?php if($verified_or_not){ ?>
-            Select Payment Method
+             <DIV class="signupformd-title"> <?php if($verified_or_not){ ?>
+            SELECT PAYMENT METHOD
           <?php }else{ ?>
            Verify your E-mail first
-          <?php } ?>
-          </h3>
+          <?php } ?></div>
+
+          <div class="row">
+            <div class="col-md-12 t-buy">
+             <ul class="nav nav-wizard buy-tkns">
+                <li class="active"><a href="#"  data-toggle="tooltip" data-placement="top" title="Choose payment method"><SPAN>1</span> PAYMENT METHOD</a></li>
+                <li><a href="#"  data-toggle="tooltip" data-placement="top" title="Choose amount/number of tokens"><SPAN>2</span> NUMBER OF TOKENS</a></li>
+                <li><a href="#"  data-toggle="tooltip" data-placement="top" title="Confirm transaction"><SPAN>3</span> CONFIRMATION</a></li>
+      
+              </ul>
+            </div>
+          </div>
+      
+
+    			<form method="post" action="">
+    	<!-- 			<h3 class="text-center">
+             
+          </h3> -->
     				
 
             <?php

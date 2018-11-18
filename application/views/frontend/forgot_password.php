@@ -11,8 +11,8 @@
 <body>
     <?php if(am_i('securix')){ ?>
        <!-- Google Tag Manager (noscript) -->
-<!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KSTKNCH"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KSTKNCH"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
 
@@ -40,7 +40,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="wrapper-page">
     <div class="panel-heading text-center m-b-15">
         <img class="logo-sign" src="<?php echo base_url();?>resources/frontend/images/logo.png?time=<?php echo time(); ?>" alt="<?php  echo TITLEWEB; ?>"/>
-        <h2 class="<?php  echo TITLEWEB; ?> <?php if(strpos(strtolower($color_bg),'fff') !== false || strpos(strtolower($color_bg),'fffff') !== false) { } else { ?>text-white <?php } ?> ">Welcome back</h2>
+        <h2 class="<?php  echo TITLEWEB; ?> <?php if(strpos(strtolower($color_bg),'fff') !== false || strpos(strtolower($color_bg),'fffff') !== false) { } else { ?>text-white <?php } ?> ">Forgot/Lost Credentials</h2>
     </div>
     <div class="card-box">
         <div class="panel-body">

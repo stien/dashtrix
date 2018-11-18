@@ -558,14 +558,14 @@ class ico extends CI_Controller {
         }       
 
     }
-//	public function banned_countries()
+//  public function banned_countries()
 //    {
 //        if(!isset($_SESSION['JobsSessions'])){
 //            header ( "Location:" . $this->config->base_url ());
 //        }
 //        else {
 //            
-//			$this->load->view('frontend/banned_countries',$this->data);
+//          $this->load->view('frontend/banned_countries',$this->data);
 //        }
 //    }
     // ACCOUNT LOGIN
@@ -589,7 +589,7 @@ class ico extends CI_Controller {
             'uEmail'    =>  $this->input->post('username')
         );
 
-       // echo $this->if_old_md5($arr['uEmail'])?"cov":"";
+       echo $this->if_old_md5($arr['uEmail'])?"cov":"";
 
         // print_r($arr);exit;
         $datashow = $this->front_model->get_query_simple('*','dev_web_user',$arr);
@@ -1338,14 +1338,12 @@ if($count > 0 && password_verify($this->input->post('password'), $datashow->resu
                 $ref_id = $ref_id[0]->uID;
             else
                 $ref_id = 0;
-
-            $newpass = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
             $data = array(
                 'uFname'        => $this->input->post('first_name'),
                 'uLname'        => $this->input->post('last_name'),
                 'uEmail'        => $this->input->post('email'),
                 'uUsername'     => $this->input->post('username'),
-                'uPassword'     => $newpass,
+                'uPassword'     => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
 //                      'uDOB'          => $this->input->post('birth_date'),
                 'uCountry'      => $this->input->post('country'),
 //                      'uCity'         => $this->input->post('city'),
@@ -1380,7 +1378,7 @@ if($count > 0 && password_verify($this->input->post('password'), $datashow->resu
                 header ( "Location:" . $this->config->base_url ()."signup");
                 exit;
             }
-            // echo $this->db->last_query();exit;
+            $data = $this->security->xss_clean($data);
             $uID = $this->front_model->add_query('dev_web_user',$data);
             // $this->put_bonus($uID);
             $this->store_next_form_data_signup($uID);
@@ -1467,7 +1465,7 @@ if($count > 0 && password_verify($this->input->post('password'), $datashow->resu
         $this->email->subject($edata[0]->eName);
         $this->email->message($message);
         $this->email->set_mailtype("html");
-        // $send = $this->email->send();
+        // $this->email->send();
         $this->sendgrid_mail(array($user->uEmail,''),$message,$edata[0]->eName);
     }
     public function do_register_admin()
@@ -1554,7 +1552,7 @@ if($count > 0 && password_verify($this->input->post('password'), $datashow->resu
             $this->email->subject($edata[0]->eName);
             $this->email->message($message);
             $this->email->set_mailtype("html");
-            // $send = $this->email->send();
+            // $this->email->send();
             $this->sendgrid_mail(array($this->input->post('email'),''),$message,$edata[0]->eName);
             unset($_SESSION['wrongsignup']);
             $_SESSION['thankyou'] = "Account has been created successfully & Email has been sent with login details on provided email address.";
@@ -2123,6 +2121,9 @@ if($count > 0 && password_verify($this->input->post('password'), $datashow->resu
     //FORGOT PASSWORD
     public function forgot_password_email()
     {
+
+          // $this->output->enable_profiler(TRUE);
+
         $ret = $this->front_model->check_frogot_password($this->input->post('email'));
         if($ret == 0)
         {
@@ -2131,23 +2132,24 @@ if($count > 0 && password_verify($this->input->post('password'), $datashow->resu
         }
         else
         {
+
             $rendomcode = $this->generateRandomString();
             $this->front_model->update_password_checl($this->input->post('email'),password_hash($rendomcode, PASSWORD_DEFAULT));
 
             // SEND EMAIL CONFIRMATION
             $edata = $this->front_model->get_emails_data('forgot-password');
             $this->load->library('email');
-            $this->email->from($edata[0]->eEmail, TITLEWEB);
+            $this->email->from('support@contribute.vtrade.io', TITLEWEB);
             $this->email->to($this->input->post('email'));
             $replace = array("[WEBURL]","[CODE]","[WEBTITLE]","[USEREMAIL]","[USERPASSWORD]");
             $replacewith = array(WEBURL, $rendomcode,TITLEWEB,$this->input->post('email'),$rendomcode);
             $str = str_replace($replace,$replacewith,$edata[0]->eContent);
             $message = $str;
-            $this->email->subject($edata[0]->eName.' - : : - '.TITLEWEB);
+            $this->email->subject($edata[0]->eName);
             $this->email->message($message);
             $this->email->set_mailtype("html");
-            // $send = $this->email->send();
-            $this->sendgrid_mail(array($this->input->post('email'),''),$message,$edata[0]->eName);
+            //  $this->email->send();
+           $this->sendgrid_mail(array($this->input->post('email'),''),$message,$edata[0]->eName);
             $_SESSION['thankyou'] = 'Email with temporary password has been sent!';
             header ( "Location:" . $this->config->base_url ());
         }
@@ -2660,11 +2662,13 @@ if($count > 0 && password_verify($this->input->post('password'), $datashow->resu
     // CHANGE PASSWORD
     public function do_change_password()
     {
+
+      //   $this->output->enable_profiler(TRUE);
         $arr2 = array('uID'=>UID);
         $config2 = $this->front_model->get_query_simple('*','dev_web_user',$arr2);
         
         $count  = $config2->num_rows();
-        if($count > 0 && password_verify($this->input->post('password'), $datashow->result_object()[0]->uPassword)){
+        if($count > 0 && password_verify($this->input->post('oldpass'), $config2->result_object()[0]->uPassword)){
             $data = array(
                 'uPassword'     => password_hash($this->input->post('password_new'), PASSWORD_DEFAULT),
             );
@@ -3757,16 +3761,7 @@ if($count > 0 && password_verify($this->input->post('password'), $datashow->resu
             
                 
                 $this->data['verified_or_not'] = $this->only_check_if_verified();
-                
-
-
-
-
-
-                if(!am_i('securix'))
-                {
-
-
+            
                     if(am_i('tib'))
                     {
 
@@ -3791,8 +3786,6 @@ if($count > 0 && password_verify($this->input->post('password'), $datashow->resu
                             
                             $this->load->view('frontend/buy_tokens_tib', $this->data);
                         }
-
-
 
                     }
                     else
@@ -3834,26 +3827,9 @@ if($count > 0 && password_verify($this->input->post('password'), $datashow->resu
 
 
 
-                }
-
-                else
-                {
-
                 
 
-                    if(isset($_POST['c_type']))
-                    {
-                        $condition = array("id" => $this->input->post('option'));
-                        $payment_option = $this->front_model->get_query_simple('*','dev_web_payment_options',$condition)->result_object()[0];
-                        $_SESSION['c_type'] = $this->input->post('c_type');
-                        redirect(base_url().'buy-tokens/'.$_SESSION['c_type']);
-                    }
-                    else
-                    {
-                       
-                        $this->load->view('frontend/buy_tokens_step_0', $this->data);
-                    }
-                }
+             
             } else {
                 $this->load->view('frontend/home', $this->data);
             }
@@ -4024,6 +4000,13 @@ if($count > 0 && password_verify($this->input->post('password'), $datashow->resu
 
                     
                     $total_tokens = $_SESSION['buy_step_2']['amount'];
+                   // $this->data['ttl_tkns'] = $total_tokens;
+
+                    // $address = $this->get_latest_address($this->data['option']->id);
+                    // $_SESSION['transaction_address']=$address;
+                    // $this->data['address']=$address;
+
+
 
 
                     $two_payments = false;
@@ -6586,7 +6569,7 @@ if($count > 0 && password_verify($this->input->post('password'), $datashow->resu
             }
         }
     }
-	public function gdpr_settings()
+    public function gdpr_settings()
     {
         if(!isset($_SESSION['JobsSessions'])){
             header ( "Location:" . $this->config->base_url ());
@@ -6982,7 +6965,7 @@ if($count > 0 && password_verify($this->input->post('password'), $datashow->resu
         $replacewith = array(WEBURL, $rendomcode, $this->input->post('namesender'),TITLEWEB,$this->input->post('emailsend'),$this->input->post('companysend'),$this->input->post('urlsend'));
         $str = str_replace($replace,$replacewith,$edata[0]->eContent);
         $message = $str;
-        $this->sendgrid_mail(array('bjosic@gmail.com',''),$message,$edata[0]->eName);
+        $this->sendgrid_mail(array('',''),$message,$edata[0]->eName);
         // $this->email->subject($edata[0]->eName);
         // $this->email->message($message);
         // $this->email->set_mailtype("html");
@@ -7052,9 +7035,7 @@ if($count > 0 && password_verify($this->input->post('password'), $datashow->resu
             $mail->addAttachment($attachment);
         }
 
-        //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
-
-        $key = "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";
+        $key = "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";
        
         $sg = new \SendGrid($key);
         $response = $sg->client->mail()->send()->post($mail);
@@ -7305,7 +7286,7 @@ if($count > 0 && password_verify($this->input->post('password'), $datashow->resu
             }
         }
     }
-	 public function enable_cookie()
+     public function enable_cookie()
     {
         if(!isset($_SESSION['JobsSessions'])){
             header ( "Location:" . $this->config->base_url ());
@@ -7651,7 +7632,7 @@ if($count > 0 && password_verify($this->input->post('password'), $datashow->resu
               }
           }
       } 
-	public function add_kyc_aml()
+    public function add_kyc_aml()
       {
             if(!isset($_SESSION['JobsSessions'])){
               header ( "Location:" . $this->config->base_url ());
@@ -8002,24 +7983,24 @@ if($count > 0 && password_verify($this->input->post('password'), $datashow->resu
      $this->is_admin();
      check_roles(2);
 
-	$user = $this->front_model->get_query_simple('uID','dev_web_user',array('uUsername'=>$this->input->post('username')));
-	$count = $user->num_rows();
-	if($count > 0){
-		$row = $user->result_object();
-		$this->front_model->delete_query('dev_web_transactions',array('uID'=>$row[0]->uID));
+    $user = $this->front_model->get_query_simple('uID','dev_web_user',array('uUsername'=>$this->input->post('username')));
+    $count = $user->num_rows();
+    if($count > 0){
+        $row = $user->result_object();
+        $this->front_model->delete_query('dev_web_transactions',array('uID'=>$row[0]->uID));
         $this->front_model->delete_query('dev_web_airdrop_submissions',array('uID'=>$row[0]->uID));
         $this->front_model->delete_query('dev_web_user',array('uID'=>$row[0]->uID));
-		
-		$_SESSION['thankyou'] = "Your Selected username and all its data has been removed!";
-		header ( "Location:".$this->config->base_url().'admin/gdpr-settings');
-	}
-	else {
-		$_SESSION['error'] = "Username not found!";
-		header ( "Location:".$this->config->base_url().'admin/gdpr-settings');
-	}
+        
+        $_SESSION['thankyou'] = "Your Selected username and all its data has been removed!";
+        header ( "Location:".$this->config->base_url().'admin/gdpr-settings');
+    }
+    else {
+        $_SESSION['error'] = "Username not found!";
+        header ( "Location:".$this->config->base_url().'admin/gdpr-settings');
+    }
 
 }
-	
+    
 public function admin_kyc_settings($id)
     {
         if(!isset($_SESSION['JobsSessions'])){
@@ -8036,11 +8017,11 @@ public function admin_kyc_settings($id)
                     );
                     $this->front_model->add_query('dev_web_kyc_ml_user',$arr);
                     $_SESSION['error'] = "Settings Added Successfully";
-					header ( "Location:".$this->config->base_url().'KYC/AML');
+                    header ( "Location:".$this->config->base_url().'KYC/AML');
                
             }
         }
-    }	
+    }   
 public function admin_kyc_settings_edit()
     {
         if(!isset($_SESSION['JobsSessions'])){
@@ -8054,25 +8035,25 @@ public function admin_kyc_settings_edit()
                         'apisetting'=>$this->input->post('settings'),
                     );
                     $this->front_model->update_query('dev_web_kyc_ml_user',$arr,array('kycID'=>$this->input->post('id')));
-				
+                
                     $_SESSION['error'] = "Settings Added Successfully";
-					header ( "Location:".$this->config->base_url().'KYC/AML');
+                    header ( "Location:".$this->config->base_url().'KYC/AML');
                
             }
         }
-    }	
-	
-	public function update_kyc_settings(){
+    }   
+    
+    public function update_kyc_settings(){
         $data = array('status' => $this->uri->segment(3));
         $condition = array('kycID' => $this->uri->segment(4));
         $this->front_model->update_query('dev_web_kyc_ml_user',$data,$condition);
-//		echo $this->db->last_query();
-//		die;
+//      echo $this->db->last_query();
+//      die;
         $_SESSION['thankyou'] = "Status information updated successfully!";
         header ( "Location:" . $_SERVER['HTTP_REFERER']);
     }
-	public function delete_kyc_aml_data(){
-      	$data = array('kycID' => $this->uri->segment(3));
+    public function delete_kyc_aml_data(){
+        $data = array('kycID' => $this->uri->segment(3));
         $this->front_model->delete_query('dev_web_kyc_ml_user',$data);
         $_SESSION['thankyou'] = "Status information updated successfully!";
         header ( "Location:" . $_SERVER['HTTP_REFERER']);
@@ -8080,15 +8061,15 @@ public function admin_kyc_settings_edit()
 public function edit_kyc_aml()
 
 {
-	if(!isset($_SESSION['JobsSessions'])){
-		header ( "Location:" . $this->config->base_url ());
-	}
-	else {
-		if (ACTYPE == 1) {
+    if(!isset($_SESSION['JobsSessions'])){
+        header ( "Location:" . $this->config->base_url ());
+    }
+    else {
+        if (ACTYPE == 1) {
              check_roles(2);
-				$this->load->view('frontend/edit_kyc_aml',$this->data);
-			}
-		}
+                $this->load->view('frontend/edit_kyc_aml',$this->data);
+            }
+        }
 }
     public function registration_form()
     {

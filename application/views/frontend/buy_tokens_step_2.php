@@ -10,15 +10,26 @@
     	<div class="row">
 
     		<div class="col-md-3"></div>
-    		<div class="col-md-6">
+    		  <!-- <div class="col-md-2"></div> -->
+            <div class="col-md-11">
+    <div class="box-buy-tokens-old t2">
 
-    			<div class="box-buy-tokens-old">
+             <DIV class="signupformd-title"> Enter Token Amount</div>
+
+          <div class="row">
+            <div class="col-md-12 t-buy">
+             <ul class="nav nav-wizard buy-tkns">
+                <li><a href="#"  data-toggle="tooltip" data-placement="top" title="Choose payment method"><SPAN>1</span> PAYMENT METHOD</a></li>
+                <li class="active"><a href="#"  data-toggle="tooltip" data-placement="top" title="Choose amount/number of tokens"><SPAN>2</span> NUMBER OF TOKENS</a></li>
+                <li><a href="#"  data-toggle="tooltip" data-placement="top" title="Confirm transaction"><SPAN>3</span> CONFIRMATION</a></li>
+      
+              </ul>
+            </div>
+          </div>
+      
    			      
-   					<h2 class="text-center"><i class="left fa <?php echo $option->icon; ?>"></i> Enter Token Amount</h2>
-                    <h2 class="text-center">
-                        <button type="button" onclick="open_converter()" class="btn btn-info btn-sm">Price/Token Converter</button>
-                    </h2>
-
+   					<!-- <h2 class="text-center"><i class="left fa <?php echo $option->icon; ?>"></i> Enter Token Amount</h2> -->
+                
                     <?php if(isset($_SESSION['thankyou'])){?>
             <div class="col-md-12">
                 <div class="form-group">
@@ -40,13 +51,26 @@
             <?php } ?>
 
    					<form method="post" action="">
+
                             <div class="row">
+                                    
+    
+                                <div class="col-sm-6">
+
+                                        <h2 class="text-center">
+                                           <!--  <button type="button" onclick="open_converter()" class="btn btn-info btn-calc"><i class="icon-calculator"></i> Price/Token Converter</button> -->
+                                        </h2>
+                                           <div class="buy-dir">Purchase tokens based on the number of tokens you would like to buy, or on a specific dollar amount.</div>
+
+                                    </div>
+
+                                <div class="col-sm-6">
                                     <?php
 
                                     if($active_token){
                                    
                                      if($active_token->min_invest!=0 || $active_token->max_invest!=0){ ?>
-                                    <div class="col-md-12">
+                                    <!-- <div class="col-md-6">
                                         <div class="info" style="background: orange; padding: 5px; text-align: center; margin:10px 0px;">
                                             <i class="fa fa-warning"></i> <?php
 
@@ -65,35 +89,59 @@
 
                                              ?>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <?php } ?>
+
 
                                  
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Price per Token (USD): </label>
-                                            <input name="priceee" type="text" disabled class="form-control" value="<?php echo $price_should_be; ?>" required>
+                                            <input name="priceee" id="priceee" type="text" disabled class="form-control" value="<?php echo $price_should_be; ?>" required>
                                         </div>
                                     </div>
 
+
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            <input type="radio" name="optradio" id="calByCost"  checked> <label for="calByCost">Enter amount of purchase </label>
+                                            <div class="cost-con">$ <input name="cost"  id="cost" type="number"  step='1' class="form-control" value="" required oninput="" >
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <div class="big-or">OR</div>
+                                    </div>
+
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <input type="radio" name="optradio" id="calByNum"> <label for="calByNum">Enter # of tokens </label>
+                                            <input name="amount" id="amount" type="number"  step='0.01' disabled class="form-control" value="" required oninput="update_values(this)" >
+                                        </div>
+                                    </div>
 
                                     <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label>Amount of Tokens to Purchase: </label>
-                                            <input name="amount" type="number"  step='0.01' class="form-control" value="" required oninput="update_values(this)" 
 
+                                            Bonus: <span name="bonus_friendly" id="bonus_friendly"></span>%
+                                           
+                                            <input name="actual_bonus" id="actual_bonus" type="hidden"  class="form-control" value="" >
 
-                                            >
-                                        </div>
                                     </div>
 
+                                    <div class="col-md-12">
 
-                                    <div class="col-md-12" style="display: none;">
+                                            # of tokens plus bonus: <input name="total_with_bonus" id="total_with_bonus" type="text" disabled class="form-control" value="" >
+
+                                    </div>
+
+                                   <!--  <div class="col-md-12" style="display: none;">
                                         <div class="form-group">
                                             <label>Total Tokens with Bonus: </label>
                                             <input name="bonus" type="text" id="total_tokens" disabled class="form-control" value="" required >
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                     <?php /* ?>
                                     <div class="col-md-12 " >
@@ -106,14 +154,11 @@
 
                                 <?php }else{ ?>
                                     <div class="" style="background: orange; text-align: center; padding: 10px 13px;">
-              No token pricing is active. Please contact with administrator to proceed further.
-             </div>
- <?php } ?>
-
-                                  
-
-                                   
-
+                                          No token pricing is active. Please contact with administrator to proceed further.
+                                                                 </div>
+                                                     <?php } ?>
+                                                    </div>
+                                                          
                                    <div class="col-md-12">
 						            
 
@@ -128,9 +173,9 @@
 
                                     <div class="col-md-3 right m-t-40">
                                          <div class="form-group">
-                                            <a href="<?php echo base_url().'dashboard'; ?>">
+                                            <a href="<?php echo base_url().'buy-tokens'; ?>">
                                                 <button class="btn btn-danger btn-block btn-sm "  type="button">
-                                                      Cancel
+                                                      Go Back
                                                 </button>
                                             </a>
                                          </div>
@@ -306,6 +351,8 @@ function update_values(val)
 	// $("#total_price").val(total_price);
 
 
+
+
 }
 
 
@@ -317,12 +364,11 @@ function closeModel()
 function open_converter(id,title,link)
             {
 
-                
-
                   $(".ask_reason").show();
                   return;
               
-            }
+                  }
+
     function convertNow()
     {
          $("body").append('<div class="loading">Loading&#8230;</div>');
@@ -335,4 +381,81 @@ function open_converter(id,title,link)
              $(".loading").remove();
         });
     }
+
+    $('input').on('input', function() {
+
+        if ($('#calByNum').prop('checked')==true){
+            $('#cost').val(($(this).val()*$('#priceee').val()).toFixed(2));
+        }
+
+        if ($('#calByCost').prop('checked')==true){
+            $('#amount').val(($(this).val()/$('#priceee').val()).toFixed(2));
+        }
+
+        calcTotalWithBonus()
+
+    })
+
+    $('#calByCost').on('click', function(){
+        if ($('#calByCost').prop('checked')==true){
+             $("#amount").prop("disabled", true);
+            $("#cost").prop("disabled", false);
+        }
+    })
+
+        $('#calByNum').on('click', function(){
+        if ($('#calByNum').prop('checked')==true){
+             $("#cost").prop("disabled", true);
+            $("#amount").prop("disabled", false);
+        }
+    })
+
+$('#submit_btn').on('click', function(){
+    localStorage.currentTokenByAmount=$('#total_with_bonus').val();
+    $("#amount").prop("disabled", false);
+})
+
+
+    function totalWithBonus() {
+
+        // if(val>0)
+    var php_active_token_s = <?php echo get_bonus($active_token->tkID,am_i('scia')); ?>;
+
+
+    var _bonus = 0;
+    for(let i = 0; i<php_active_token_s.length; i++)
+    {
+        if(parseFloat(val)>=php_active_token_s[i][0] && parseFloat(val)<=php_active_token_s[i][1])
+        {
+            var _bonus = php_active_token_s[i][2];
+            break;
+        }
+    }
+
+         if(_bonus==0)
+                _bonus = parseFloat(<?php echo get_bonus($active_token->tkID,false); ?>);
+            console.log(_bonus);
+            php_active_token = _bonus;
+
+            $('#bonus_friendly').text(php_active_token);
+
+            var bonus = (php_active_token/100);
+
+            $('#actual_bonus').val(bonus);
+
+    }
+
+    function calcTotalWithBonus() {
+
+        var newCalc = parseFloat($('#amount').val())+parseFloat($('#amount').val()*$('#actual_bonus').val())
+
+        $('#total_with_bonus').val(newCalc.toFixed(2))
+    }
+
+
+$(function() {
+    totalWithBonus();
+});
+
+
 </script>
